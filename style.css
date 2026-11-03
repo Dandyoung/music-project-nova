@@ -427,8 +427,12 @@ dialog.detail[open] { display: block; }
   .menu-column .idx { display: none; }
   .menu-footer { grid-template-columns: 1fr; row-gap: 10px; text-align: center; padding-bottom: 28px; font-size: 12px; }
 
-  .menu-footer .col { flex-direction: row; justify-content: center; gap: 22px; }
-  .menu-footer .col:last-child { text-align: center; }
+  /* 모바일 : 위 줄에 Instagram / YouTube / Privacy Policy, 아래 저작권 (Privacy 는 두 번째 칸에서 첫 줄로 끌어올림) */
+  .menu-footer { display: flex; flex-direction: column; align-items: center; }
+  .menu-footer .col { flex-direction: row; justify-content: center; gap: 22px; display: contents; }
+  .menu-footer .col > a, .menu-footer .col > span { display: block; white-space: nowrap; }
+  .menu-footer .col:first-child > a { order: 1; } .menu-footer .col:last-child > a { order: 1; } .menu-footer .col:last-child > span { order: 2; width: 100%; text-align: center; margin-top: 10px; }
+  .menu-footer { flex-direction: row; flex-wrap: wrap; justify-content: center; column-gap: 22px; }
   #featured .background img { object-position: 45% 50%; }
   .hero-mark img { width: 59.5vw; }
   #social { gap: 14px; bottom: 64px; }

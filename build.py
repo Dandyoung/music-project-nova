@@ -254,8 +254,8 @@ page = f'''<!doctype html>
   <nav class="menu-nav">
 ''' + ''.join((f'    <div class="menu-column"><a class="menu-link" href="{h}" target="_blank" rel="noreferrer"><span class="idx">{i}</span>{l}</a></div>\n' if h.startswith("http") else f'    <div class="menu-column"><a class="menu-link" href="#" data-open="{h}"><span class="idx">{i}</span>{l}</a></div>\n') for i, l, h in NAV) + f'''  </nav>
   <div class="menu-footer">
-    <div class="col"><a href="{NOVA_IG}" target="_blank" rel="noreferrer">Instagram</a><a href="{NOVA_YT}" target="_blank" rel="noreferrer">YouTube</a><a href="#" data-open="#privacyDialog">Privacy Policy</a></div>
-    <div class="col"><span>&copy; <span id="year"></span> Music Project NOVA</span></div>
+    <div class="col"><a href="{NOVA_IG}" target="_blank" rel="noreferrer">Instagram</a><a href="{NOVA_YT}" target="_blank" rel="noreferrer">YouTube</a></div>
+    <div class="col"><span>&copy; <span id="year"></span> Music Project NOVA</span><a href="#" data-open="#privacyDialog">Privacy Policy</a></div>
   </div>
   <div id="menu-close" class="fixed-trigger" role="button" tabindex="0">[ Close ]</div>
 </dialog>
