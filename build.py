@@ -304,7 +304,7 @@ page = f'''<!doctype html>
 
   <section class="inq" id="inquiry">
     <h2>Inquiry</h2>
-    <p class="lead">문의하신 내용 확인 후 담당자가 개별 연락 드리도록 하겠습니다.</p>
+    <p class="lead">문의하신 내용 확인 후 담당자가 개별 연락 드리도록 하겠습니다. 일시와 장소가 미정인 경우 "미정" 으로 기재해 주세요.</p>
     <form id="bf" novalidate>
       <div class="f"><span>유형<b>*</b></span><select name="type" class="empty"><option value="">선택</option><option>공연 섭외</option><option>협업 제안</option><option>촬영, 인터뷰</option><option>기타 문의</option></select><p class="msg">유형을 선택해 주세요.</p></div>
       <div class="two">
