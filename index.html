@@ -1,0 +1,338 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>NOVA, Music Project</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Music Project NOVA 뮤직 프로젝트 노바. 전통의 깊이, 새로운 울림.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@200;300;400;600;700&family=Gothic+A1:wght@200;300;400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+<link rel="stylesheet" href="style.css?v=1793693421">
+</head>
+<body>
+<dialog id="menuDialog" class="menu-container">
+  <div class="menu-blur"></div>
+  <a class="menu-home" href="#" data-home aria-label="Home"><img src="images/nova-mark.png" alt="NOVA"></a>
+  <nav class="menu-nav">
+    <div class="menu-column"><a class="menu-link" href="#" data-open="#aboutDialog"><span class="idx">01</span>About</a></div>
+    <div class="menu-column"><a class="menu-link" href="#" data-open="#artistsDialog"><span class="idx">02</span>Artists</a></div>
+    <div class="menu-column"><a class="menu-link" href="#" data-open="#showsDialog"><span class="idx">03</span>History</a></div>
+    <div class="menu-column"><a class="menu-link" href="#" data-open="#galleryDialog"><span class="idx">04</span>Gallery</a></div>
+    <div class="menu-column"><a class="menu-link" href="#" data-open="#noticeDialog"><span class="idx">05</span>Notice</a></div>
+    <div class="menu-column"><a class="menu-link" href="#" data-open="#contactDialog"><span class="idx">06</span>Contact</a></div>
+  </nav>
+  <div class="menu-footer">
+    <div class="col"><a href="https://www.instagram.com/proj.nova_" target="_blank" rel="noreferrer">Instagram</a><a href="https://www.youtube.com/@projectnova-o2b" target="_blank" rel="noreferrer">YouTube</a><a href="#" data-open="#privacyDialog">Privacy Policy</a></div>
+    <div class="col"><span>&copy; <span id="year"></span> Music Project NOVA</span></div>
+  </div>
+  <div id="menu-close" class="fixed-trigger" role="button" tabindex="0">[ Close ]</div>
+</dialog>
+<div id="menu-trigger" class="fixed-trigger" role="button" tabindex="0">[ <span class="menu-label">Menu</span><span class="close-label">Close</span> ]</div>
+
+<div id="container">
+  <section id="featured" class="page">
+    <div class="background"><img src="images/nova-hero-daegu.jpg" alt=""></div>
+    <div id="top-gradient" class="gradient"></div>
+    <div id="bottom-gradient" class="gradient"></div>
+
+    <div class="hero-mark"><img src="images/nova-mark.png" alt="NOVA"></div>
+    <div id="social">
+      <a href="https://www.instagram.com/proj.nova_" target="_blank" rel="noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.youtube.com/@projectnova-o2b" target="_blank" rel="noreferrer" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+      <a href="#" id="mail-open" aria-label="Email"><i class="far fa-envelope"></i></a>
+    </div>
+    <p class="copyright">&copy; Music Project NOVA. All rights reserved. <br class="m">All of NOVA's content is copyrighted.</p>
+  </section>
+
+</div>
+
+<dialog id="aboutDialog">
+  <div class="dlg-bar">
+    <a class="dlg-home" href="#" data-close="#aboutDialog" aria-label="Home"><img src="images/nova-mark.png" alt="NOVA"></a>
+    <span class="dlg-menu" data-menu>[ Menu ]</span>
+  </div>
+  <button class="totop" type="button" aria-label="Top"><svg viewBox="0 0 24 24"><path d="M6 14l6-6 6 6"/></svg>TOP</button>
+  <div class="wrapper">
+    <p class="kicker">01 / About</p>
+    <h2></h2>
+    <div class="about">
+      <img class="about-mark" src="images/nova-mark.png" alt="NOVA">
+      <p class="lead">Like NOVA, the moment a new light is born, we came together to breathe new life into Korean traditional music.<span class="ko">새로운 빛이 탄생하는 순간을 뜻하는 'NOVA' 처럼, 전통음악에 새로운 숨결을 더하고자 모였습니다.</span></p>
+      <p>Music Project NOVA keeps traditional music such as jeongak and minsogak, which carry our culture and sentiment, at its center, and weaves in the senses of popular and contemporary music. Connecting the beauty of traditional music to the present, we deliver music that is comfortable yet special, with sounds anyone can relate to and enjoy.<span class="ko">뮤직 프로젝트 노바는 우리의 문화와 정서가 담긴 정악과 민속악 등 전통음악을 중심에 두고, 대중음악과 현대음악의 감각을 조화롭게 접목합니다. 전통음악의 아름다움을 현재와 연결하며, 익숙함과 새로움이 어우러지는 소리로 누구나 공감하고 즐길 수 있는 편안하면서도 특별한 음악을 전합니다.</span></p>
+      <div class="actions"><a class="bracket" href="https://www.instagram.com/proj.nova_" target="_blank" rel="noreferrer">Instagram</a><a class="bracket" href="https://www.youtube.com/@projectnova-o2b" target="_blank" rel="noreferrer">YouTube</a><a class="bracket" href="#" data-open="#artistsDialog">Artists</a></div>
+    </div>
+  </div>
+</dialog>
+<dialog id="artistsDialog">
+  <div class="dlg-bar">
+    <a class="dlg-home" href="#" data-close="#artistsDialog" aria-label="Home"><img src="images/nova-mark-dark.png" alt="NOVA"></a>
+    <span class="dlg-menu" data-menu>[ Menu ]</span>
+  </div>
+  <button class="totop" type="button" aria-label="Top"><svg viewBox="0 0 24 24"><path d="M6 14l6-6 6 6"/></svg>TOP</button>
+  <div class="wrapper">
+    <p class="kicker">02 / Artists</p>
+    <h2>새로운 빛으로 만나는 우리 음악</h2>
+    <p class="lead intro">Like NOVA, the moment a new light is born, we came together to breathe new life into Korean traditional music.<span class="ko">새로운 빛이 탄생하는 순간을 뜻하는 'NOVA' 처럼, 전통음악에 새로운 숨결을 더하고자 모였습니다.</span></p>
+    <div class="rule"></div>
+    <div class="grid" id="artist-grid">
+      <a class="artist" href="#artists/soyeong" data-artist="soyeong" data-i="0"><div class="frame"><img src="images/portrait-grey-2.jpg" alt="" style="object-position: 56% 23%"><span class="view">View profile <i>&rarr;</i></span></div><div class="meta"><div class="name">이소영<small>Soyeong Lee</small></div><div class="inst">대금 / Daegeum</div></div></a>
+      <a class="artist" href="#artists/chaerin" data-artist="chaerin" data-i="1"><div class="frame"><div class="ph" data-inst="GEOMUNGO / 거문고"></div><span class="view">View profile <i>&rarr;</i></span></div><div class="meta"><div class="name">김채린<small>Chaerin Kim</small></div><div class="inst">거문고 / Geomungo</div></div></a>
+      <a class="artist" href="#artists/yukyung" data-artist="yukyung" data-i="2"><div class="frame"><div class="ph" data-inst="HAEGEUM / 해금"></div><span class="view">View profile <i>&rarr;</i></span></div><div class="meta"><div class="name">황유경<small>Yukyung Hwang</small></div><div class="inst">해금 / Haegeum</div></div></a>
+      <a class="artist" href="#artists/jeonghyun" data-artist="jeonghyun" data-i="0"><div class="frame"><div class="ph" data-inst="PERCUSSION / 타악"></div><span class="view">View profile <i>&rarr;</i></span></div><div class="meta"><div class="name">전정현<small>Jeonghyun Jeon</small></div><div class="inst">타악 / Percussion</div></div></a>
+      <a class="artist" href="#artists/hanbyeol" data-artist="hanbyeol" data-i="1"><div class="frame"><div class="ph" data-inst="DAEGEUM / 대금"></div><span class="view">View profile <i>&rarr;</i></span></div><div class="meta"><div class="name">손한별<small>Hanbyeol Son</small></div><div class="inst">대금 / Daegeum</div></div></a>
+      <div class="artist soon" data-i="2"><div class="frame"><div>Coming<br>soon</div></div></div>
+    </div>
+  </div>
+</dialog>
+<dialog id="artistDialog">
+  <div class="dlg-bar">
+    <a class="dlg-home" href="#" data-close="#artistDialog" aria-label="Home"><img src="images/nova-mark-dark.png" alt="NOVA"></a>
+    <span class="dlg-menu" data-menu>[ Menu ]</span>
+  </div>
+  <button class="totop" type="button" aria-label="Top"><svg viewBox="0 0 24 24"><path d="M6 14l6-6 6 6"/></svg>TOP</button>
+  <div class="wrapper">
+    <p class="kicker"></p>
+    <h2></h2>
+    <div class="head va" id="ar-head"><h2 class="bigname" id="ar-name"></h2><p class="inst" id="ar-inst"></p></div>
+    <div class="cols">
+      <div class="photo"><div class="frame" id="ar-photo"></div></div>
+      <div class="text">
+        <div class="ptabs" id="ar-tabs"><button type="button" data-tab="bio" class="current">About</button><button type="button" data-tab="career">Profile</button></div>
+        <div class="pane" data-pane="bio"><div class="bio" id="ar-bio"></div><div class="icons" id="ar-links"></div></div>
+        <div class="pane career" data-pane="career" id="ar-career" hidden></div>
+      </div>
+    </div>
+    <div class="artist-nav"><a href="#" id="ar-prev"><span class="dir">Prev</span></a><a href="#" class="more list" data-open="#artistsDialog">목록</a><a href="#" id="ar-next"><span class="dir">Next</span></a></div>
+  </div>
+</dialog>
+<dialog id="showsDialog">
+  <div class="dlg-bar light">
+    <a class="dlg-home" href="#" data-close="#showsDialog" aria-label="Home"><img src="images/nova-mark.png" alt="NOVA"></a>
+    <span class="dlg-menu" data-menu>[ Menu ]</span>
+  </div>
+  <button class="totop" type="button" aria-label="Top"><svg viewBox="0 0 24 24"><path d="M6 14l6-6 6 6"/></svg>TOP</button>
+  <section class="hhero">
+    <img src="images/sy-greenscreen.jpg" alt="">
+    <div class="cap"><h2>전통의 깊이, 새로운 울림.</h2><p class="sub">우리의 음악에 오늘의 감각을 더하다.<br>익숙함과 새로움이 어우러지는 국악의 무대.</p></div>
+  </section>
+  <div class="wrapper">
+    <p class="kicker">03 / History</p>
+    <h2>노바가 함께한 무대</h2>
+    <section class="archive">
+      <div class="yr"><h3>2026</h3><div class="list">
+        <div class="row"><span class="d">09.09</span><span class="t">AOCMP 2026 및 제72회 한국의학물리학회 추계학술대회</span><span class="m">부산항전시컨벤션센터 / 축하공연</span></div>
+        <div class="row"><span class="d">08.07</span><span class="t">꿈꾸는 예술무대 &lt;PAN : ON&gt;</span><span class="m">경주 교촌마을 / 연주회</span></div>
+        <div class="row"><span class="d">06.13</span><span class="t">부산교직원불자연합회 대법회</span><span class="m">범어사 보제루 / 퓨전 국악 축하공연</span></div>
+        <div class="row"><span class="d">05.18</span><span class="t">아시아물리올림피아드 개막식</span><span class="m">부경대학교 대학극장</span></div>
+        <div class="row"><span class="d">05.11</span><span class="t">찾아가는 음악회 &lt;프로젝트 노바&gt;</span><span class="m">서감초등학교</span></div>
+        <div class="row"><span class="d">01.14</span><span class="t">한물교 파크골프연습장 개관식</span><span class="m">한물교 파크골프연습장 / 금정구</span></div>
+        <div class="row"><span class="d">01.07</span><span class="t">범어숲 개장식 축하 공연</span><span class="m">금정구 / 오프닝 국악 공연</span></div>
+      </div></div>
+      <div class="yr"><h3>2025</h3><div class="list">
+        <div class="row"><span class="d">11.22</span><span class="t">차도 마시Go, 국악도 듣Go, 춤도 추Go</span><span class="m">김해한옥체험관 / 김해시</span></div>
+        <div class="row"><span class="d">11.19</span><span class="t">NMJ 2025 행사 공연</span><span class="m">영주 선비세상 / 영주시, 국제나노마이크로조이닝협회</span></div>
+        <div class="row"><span class="d">11.17</span><span class="t">부산의 보물섬 영도, 중앙동</span><span class="m">부산근현대역사관 / 박성희 &amp; 노바</span></div>
+        <div class="row"><span class="d">10.17</span><span class="t">개산대제 음악회</span><span class="m">범어사 야외무대 / 박성희 &amp; 노바</span></div>
+        <div class="row"><span class="d">10.16</span><span class="t">제29회 봉화송이축제 / 성이성 문화재 축제</span><span class="m">내성천 체육공원 / 봉화군, 봉화축제관광재단</span></div>
+        <div class="row"><span class="d">08.30</span><span class="t">대구 국가유산야행</span><span class="m">경상감영공원 / 대구 중구, 국가유산청</span></div>
+        <div class="row"><span class="d">04 - 12</span><span class="t">국립부산국악원 찾아가는 음악회</span><span class="m">초량, 부산진, 운산, 가야, 대연초등학교</span></div>
+      </div></div>
+    </section>
+    <section class="hgal">
+      <div class="hcards">
+      <a class="hcard" href="#" data-open="#galleryDialog"><div class="img"><img src="images/live-aocmp.jpg" alt="" loading="lazy"></div><h4>AOCMP 2026 및 제72회 한국의학물리학회 추계학술대회</h4><p class="d">2026.09.09</p></a>
+      <a class="hcard" href="#" data-open="#galleryDialog"><div class="img"><img src="images/nova-panon-gyeongju.jpg" alt="" loading="lazy"></div><h4>꿈꾸는 예술무대 &lt;PAN : ON&gt;</h4><p class="d">2026.08.07</p></a>
+      <a class="hcard" href="#" data-open="#galleryDialog"><div class="img"><img src="images/live-apho.jpg" alt="" loading="lazy"></div><h4>아시아물리올림피아드 개막식</h4><p class="d">2026.05.18</p></a>
+      <a class="hcard" href="#" data-open="#galleryDialog"><div class="img"><img src="images/live-gimhae.jpg" alt="" loading="lazy"></div><h4>차도 마시Go, 국악도 듣Go, 춤도 추Go</h4><p class="d">2025.11.22</p></a>
+      <a class="hcard" href="#" data-open="#galleryDialog"><div class="img"><img src="images/live-nmj.jpg" alt="" loading="lazy"></div><h4>NMJ 2025 행사 공연</h4><p class="d">2025.11.19</p></a>
+      <a class="hcard" href="#" data-open="#galleryDialog"><div class="img"><img src="images/nova-hero-daegu.jpg" alt="" loading="lazy"></div><h4>대구 국가유산야행</h4><p class="d">2025.08.30</p></a>
+      </div>
+      <div class="more-wrap" id="cards-more"><a class="more" href="#" data-open="#galleryDialog">더 보기</a></div>
+    </section>
+  </div>
+</dialog>
+<dialog id="galleryDialog">
+  <div class="dlg-bar">
+    <a class="dlg-home" href="#" data-close="#galleryDialog" aria-label="Home"><img src="images/nova-mark-dark.png" alt="NOVA"></a>
+    <span class="dlg-menu" data-menu>[ Menu ]</span>
+  </div>
+  <button class="totop" type="button" aria-label="Top"><svg viewBox="0 0 24 24"><path d="M6 14l6-6 6 6"/></svg>TOP</button>
+  <div class="wrapper">
+    <p class="kicker">04 / Gallery</p>
+    <h2>공간을 채우고, 사람을 잇는 음악</h2>
+    <div class="fbar"><div class="ptabs" id="gallery-tabs"><button type="button" data-y="all" class="current">전체</button><button type="button" data-y="2026">2026</button><button type="button" data-y="2025">2025</button></div><div class="search"><input id="gallery-search" type="search" placeholder="Search" autocomplete="off"><span class="icon"></span></div></div>
+    <div class="hcards" id="gallery-grid">
+      <a class="hcard" href="#" data-g="0"><div class="img"><img src="images/live-aocmp.jpg" alt="" loading="lazy"><span class="cnt">2장</span></div><h4>AOCMP 2026 및 제72회 한국의학물리학회 추계학술대회</h4><p class="d">2026.09.09</p></a>
+      <a class="hcard" href="#" data-g="1"><div class="img"><img src="images/nova-panon-gyeongju.jpg" alt="" loading="lazy"><span class="cnt">3장</span></div><h4>꿈꾸는 예술무대 &lt;PAN : ON&gt;</h4><p class="d">2026.08.07</p></a>
+      <a class="hcard" href="#" data-g="2"><div class="img"><img src="images/live-apho.jpg" alt="" loading="lazy"></div><h4>아시아물리올림피아드 개막식</h4><p class="d">2026.05.18</p></a>
+      <a class="hcard" href="#" data-g="3"><div class="img"><img src="images/live-gimhae.jpg" alt="" loading="lazy"><span class="cnt">2장</span></div><h4>차도 마시Go, 국악도 듣Go, 춤도 추Go</h4><p class="d">2025.11.22</p></a>
+      <a class="hcard" href="#" data-g="4"><div class="img"><img src="images/live-nmj.jpg" alt="" loading="lazy"></div><h4>NMJ 2025 행사 공연</h4><p class="d">2025.11.19</p></a>
+      <a class="hcard" href="#" data-g="5"><div class="img"><img src="images/nova-hero-daegu.jpg" alt="" loading="lazy"><span class="cnt">3장</span></div><h4>대구 국가유산야행</h4><p class="d">2025.08.30</p></a>
+    </div>
+    <p class="empty" id="gallery-empty" hidden>해당하는 공연이 없습니다.</p>
+    <div class="more-wrap" id="gallery-more"><button class="more" type="button">더 보기</button></div>
+  </div>
+</dialog>
+<dialog id="mailDialog" class="maildlg">
+  <div class="mailbox">
+    <span class="modal-close" id="mail-close" aria-label="Close"></span>
+    <p class="mk">Contact</p>
+    <div class="citem"><i class="far fa-envelope"></i><div><span class="k">Email</span><span class="v">vjvorxmthdud@naver.com</span></div><div class="acts"><button type="button" class="act" data-copy="vjvorxmthdud@naver.com">복사</button><a class="act" href="mailto:vjvorxmthdud@naver.com">열기</a></div></div>
+    <div class="citem"><i class="fab fa-instagram"></i><div><span class="k">Instagram</span><span class="v">@proj.nova_</span></div><div class="acts"><button type="button" class="act" data-copy="https://www.instagram.com/proj.nova_">복사</button><a class="act" href="https://www.instagram.com/proj.nova_" target="_blank" rel="noreferrer">열기</a></div></div>
+    <div class="citem"><i class="fab fa-youtube"></i><div><span class="k">YouTube</span><span class="v">Music Project NOVA</span></div><div class="acts"><button type="button" class="act" data-copy="https://www.youtube.com/@projectnova-o2b">복사</button><a class="act" href="https://www.youtube.com/@projectnova-o2b" target="_blank" rel="noreferrer">열기</a></div></div>
+    <p class="copied" id="mail-copied" aria-live="polite"><svg viewBox="0 0 24 24" aria-hidden="true"><path class="ck" d="M5 12.5l4.5 4.5L19 7.5"/></svg>복사되었습니다</p>
+  </div>
+</dialog>
+<dialog id="leaveDialog" class="maildlg">
+  <div class="mailbox leavebox">
+    <p class="lt">작성 중인 문의가 있습니다.</p>
+    <p class="ld">이 페이지를 나가면 입력한 내용이 모두 사라집니다.</p>
+    <div class="lbtns"><button type="button" class="more" id="leave-stay">계속 작성하기</button><button type="button" class="more ghost" id="leave-go">나가기</button></div>
+  </div>
+</dialog>
+<dialog id="galleryView" class="post">
+  <div class="dlg-bar"><a class="dlg-home" href="#" data-home aria-label="Home"><img src="images/nova-mark-dark.png" alt="NOVA"></a><span class="dlg-menu" data-menu>[ Menu ]</span></div>
+  <button class="totop" type="button" aria-label="Top"><svg viewBox="0 0 24 24"><path d="M6 14l6-6 6 6"/></svg>TOP</button>
+  <article class="pwrap">
+    <p class="pk" id="gv-date"></p>
+    <h2 id="gv-title"></h2>
+    <div class="photos" id="gv-photos"></div>
+    <div class="pbot">
+      <a href="#" class="prev" id="gv-prev"><span class="dir">Prev</span></a>
+      <a href="#" class="more list" id="gv-list">목록</a>
+      <a href="#" class="next" id="gv-next"><span class="dir">Next</span></a>
+    </div>
+  </article>
+</dialog>
+<dialog id="contactDialog">
+  <div class="dlg-bar">
+    <a class="dlg-home" href="#" data-close="#contactDialog" aria-label="Home"><img src="images/nova-mark-dark.png" alt="NOVA"></a>
+    <span class="dlg-menu" data-menu>[ Menu ]</span>
+  </div>
+  <button class="totop" type="button" aria-label="Top"><svg viewBox="0 0 24 24"><path d="M6 14l6-6 6 6"/></svg>TOP</button>
+  <div class="wrapper">
+    <p class="kicker">06 / Contact</p>
+    <h2>문의</h2>
+    <p class="intro">공연 섭외, 협업, 촬영 문의는 아래 양식으로 접수합니다. 이메일과 인스타그램 메시지로도 받고 있습니다.</p>
+  <div class="info"><h2>MUSIC PROJECT NOVA</h2><div class="v">대표 이소영<br>부산, 대한민국<small>Busan, Republic of Korea</small></div><div class="r"><a href="mailto:vjvorxmthdud@naver.com">vjvorxmthdud@naver.com</a></div></div>
+  <div class="info"><h2>SNS</h2><div class="v"><a href="https://www.instagram.com/proj.nova_" target="_blank" rel="noreferrer">Instagram @proj.nova_</a><br><a href="https://www.youtube.com/@projectnova-o2b" target="_blank" rel="noreferrer">YouTube Music Project NOVA</a></div><div class="r"></div></div>
+
+  <section class="inq" id="inquiry">
+    <h2>Inquiry</h2>
+    <p class="lead">문의하신 내용 확인 후 담당자가 이메일로 답변드립니다. 일시와 장소가 미정인 경우 "미정" 으로 기재해 주세요.</p>
+    <form id="bf" novalidate>
+      <div class="f"><span>유형<b>*</b></span><select name="type" class="empty"><option value="">선택</option><option>공연 섭외</option><option>협업 제안</option><option>촬영, 인터뷰</option><option>기타 문의</option></select><p class="msg">유형을 선택해 주세요.</p></div>
+      <div class="two">
+        <div class="f" id="f-event"><span><em>행사명</em><b>*</b></span><input name="event" type="text" placeholder="행사명을 입력해 주세요."><p class="msg">행사명을 입력해 주세요.</p></div>
+        <div class="f"><span>소속</span><input name="org" type="text" placeholder="단체명 또는 회사명"></div>
+      </div>
+      <div class="two">
+        <div class="f"><span>이름<b>*</b></span><input name="name" type="text" placeholder="이름을 입력해 주세요."><p class="msg">이름을 입력해 주세요.</p></div>
+        <div class="f"><span>연락처<b>*</b></span><input name="phone" type="tel" placeholder="연락처를 입력해 주세요."><p class="msg">연락처를 입력해 주세요.</p></div>
+      </div>
+      <div class="two">
+        <div class="f"><span>이메일<b>*</b></span><input name="email" type="email" placeholder="이메일 주소를 입력해 주세요."><p class="msg">이메일 주소를 입력해 주세요.</p></div>
+        <div class="f" id="f-date"><span><em>행사 일시</em></span><input name="date" type="text" placeholder="예: 2026.12.20 (토) 오후 7시. 미정 시 미정으로 기재"></div>
+      </div>
+      <div class="f" id="f-place"><span><em>행사 장소</em></span><input name="place" type="text" placeholder="예: 부산문화회관 중극장. 미정 시 미정으로 기재"></div>
+      <div class="f" id="f-desc"><span><em>문의 내용</em><b>*</b></span><textarea name="desc" placeholder="행사 성격, 희망 구성(인원과 시간), 관객 규모, 음향 장비 유무, 예산 범위 등"></textarea><p class="msg">문의 내용을 입력해 주세요.</p></div>
+
+      <div class="agree" id="ag1">
+        <span>개인정보 수집, 이용 동의<b>*</b></span>
+        <table><thead><tr><th>수집, 이용 항목</th><th>수집, 이용 목적</th><th>보유 기간</th></tr></thead><tbody><tr><td>이름, 연락처, 이메일</td><td>문의 답변, 섭외 협의</td><td>협의 종료 후 12개월</td></tr></tbody></table>
+        <p class="note">개인정보 수집 및 이용에 대한 동의를 거부할 수 있으며, 동의를 거부할 경우 문의 접수가 제한됩니다.</p>
+        <label class="chk"><input type="checkbox" name="agree1">동의합니다.</label>
+      </div>
+      <div class="agree" id="ag2">
+        <span><em id="ag2-title">행사 정보</em> 수집, 이용 동의<b>*</b></span>
+        <table><thead><tr><th>수집, 이용 항목</th><th>수집, 이용 목적</th><th>보유 기간</th></tr></thead><tbody><tr><td>소속, <span id="ag2-items">행사명, 행사 일시, 행사 장소</span>, 문의 내용</td><td><span id="ag2-purpose">공연 섭외 검토, 일정 조율</span></td><td>협의 종료 후 12개월</td></tr></tbody></table>
+        <p class="note">수집 및 이용에 대한 동의를 거부할 수 있으며, 동의를 거부할 경우 문의 접수가 제한됩니다.</p>
+        <label class="chk"><input type="checkbox" name="agree2">동의합니다.</label>
+      </div>
+
+      <div class="submit"><button class="cbtn" type="submit" id="submit" disabled>등록</button><p class="done" id="done">메일 앱이 열렸습니다. 보내기를 누르면 접수됩니다.</p></div>
+    </form>
+  </section>
+  </div>
+</dialog>
+<dialog id="privacyDialog">
+  <div class="dlg-bar">
+    <a class="dlg-home" href="#" data-close="#privacyDialog" aria-label="Home"><img src="images/nova-mark-dark.png" alt="NOVA"></a>
+    <span class="dlg-menu" data-menu>[ Menu ]</span>
+  </div>
+  <button class="totop" type="button" aria-label="Top"><svg viewBox="0 0 24 24"><path d="M6 14l6-6 6 6"/></svg>TOP</button>
+  <div class="wrapper">
+    <p class="kicker">Privacy Policy</p>
+    <h2>개인정보 처리방침</h2>
+    <div class="policy">
+      <p class="pv">시행일 2026년 11월 3일</p>
+      <p>뮤직 프로젝트 노바(이하 "노바")는 ｢개인정보 보호법｣ 을 지키며 이 홈페이지(이하 "사이트")를 운영합니다. 이 방침은 사이트 방문자의 개인정보가 어떻게 다뤄지는지를 알려 드리기 위한 것입니다.</p>
+      <ol>
+        <li>수집하는 개인정보, 처리 목적, 보유 기간<p>사이트는 회원 가입, 댓글 기능을 두지 않으며 방문자의 개인정보를 자동으로 수집하거나 저장하지 않습니다. 문의를 보내 주시는 경우에만 아래 정보를 받습니다.</p>
+          <table class="ptab"><thead><tr><th>수집 시점</th><th>처리 목적</th><th>수집 항목</th><th>보유 기간</th></tr></thead><tbody>
+            <tr><td>이메일, 인스타그램 메시지 문의</td><td>문의 답변, 섭외 협의</td><td>이름, 연락처(전화번호 또는 이메일), 소속, 문의 내용</td><td>협의 종료 후 1년</td></tr>
+            <tr><td>섭외 문의 양식 (사이트)</td><td>공연 섭외 검토와 회신</td><td>행사명, 주최, 담당자 이름, 연락처, 이메일, 행사 일시와 장소, 희망 구성, 요청 사항</td><td>협의 종료 후 1년</td></tr>
+            <tr><td>공연 계약 체결</td><td>계약 이행, 정산, 세무 신고</td><td>계약서에 적힌 담당자 정보, 정산 정보</td><td>관련 법령이 정한 기간 (국세기본법 5년)</td></tr>
+          </tbody></table></li>
+        <li>제3자 제공과 위탁<p>받은 정보를 다른 사람이나 단체에 제공하거나 처리를 맡기지 않습니다. 법령에 따라 제출 의무가 생기는 경우는 예외입니다.</p></li>
+        <li>쿠키와 자동 수집<p>사이트는 쿠키, 방문 분석 도구, 광고 추적 도구를 쓰지 않습니다. 사이트를 띄우는 서버가 남기는 기록은 아래와 같습니다.</p>
+          <table class="ptab"><thead><tr><th>항목</th><th>목적</th><th>보유 기간</th></tr></thead><tbody>
+            <tr><td>IP 주소, 접속 시각, 요청한 페이지</td><td>서버 보안, 장애 확인</td><td>서버 사업자의 기본 보관 기간 (최대 3개월), 따로 분석하지 않음</td></tr>
+          </tbody></table></li>
+        <li>외부 링크<p>사이트의 인스타그램, 유튜브 링크는 각 서비스로 연결됩니다. 그곳에서의 개인정보 처리는 각 서비스의 방침을 따릅니다.</p></li>
+        <li>정보주체의 권리<p>문의로 보내 주신 정보의 열람, 정정, 삭제를 언제든 요청하실 수 있습니다. 아래 연락처로 알려 주시면 지체 없이 처리합니다.</p></li>
+        <li>사진, 영상, 음원<p>사이트의 사진, 영상, 음원과 글은 노바의 소유이며 허락 없이 복제하거나 배포할 수 없습니다. 사진 속 인물의 삭제 요청은 아래 연락처로 보내 주시면 바로 조치합니다.</p></li>
+        <li>방침의 변경<p>내용이 바뀌면 이 페이지에 시행일과 함께 올립니다.</p></li>
+        <li>문의<p>개인정보 관련 문의와 권리 행사는 아래로 연락해 주세요.</p>
+          <table class="ptab"><thead><tr><th>구분</th><th>연락처</th></tr></thead><tbody>
+            <tr><td>뮤직 프로젝트 노바 (개인정보 보호책임자: 대표 이소영)</td><td>vjvorxmthdud@naver.com</td></tr>
+            <tr><td>개인정보침해신고센터</td><td>privacy.kisa.or.kr / 국번 없이 118</td></tr>
+            <tr><td>개인정보분쟁조정위원회</td><td>www.kopico.go.kr / 1833-6972</td></tr>
+          </tbody></table></li>
+      </ol>
+    </div>
+  </div>
+</dialog>
+<dialog id="noticeDialog">
+  <div class="dlg-bar">
+    <a class="dlg-home" href="#" data-close="#noticeDialog" aria-label="Home"><img src="images/nova-mark-dark.png" alt="NOVA"></a>
+    <span class="dlg-menu" data-menu>[ Menu ]</span>
+  </div>
+  <button class="totop" type="button" aria-label="Top"><svg viewBox="0 0 24 24"><path d="M6 14l6-6 6 6"/></svg>TOP</button>
+  <div class="wrapper">
+    <p class="kicker">05 / Notice</p>
+    <h2>공지</h2>
+    <div class="search"><input id="notice-search" type="search" placeholder="Search" autocomplete="off"><span class="icon"></span></div>
+    <table class="list" id="notice-table">
+      <thead><tr><th>No.</th><th>Title</th><th>Writer</th><th>Date</th></tr></thead>
+      <tbody>
+        <tr data-topic="pin" data-id="0" class="pinned"><td class="no"></td><td class="title"><a href="#" data-notice="0">공연 섭외와 협업 문의 안내</a></td><td class="writer">NOVA</td><td class="date">2026.08.15</td></tr>
+        <tr data-topic="nova" data-id="1"><td class="no">02</td><td class="title"><a href="#" data-notice="1">뮤직 프로젝트 노바 홈페이지가 오픈되었습니다</a></td><td class="writer">NOVA</td><td class="date">2026.11.03</td></tr>
+        <tr data-topic="nova" data-id="2"><td class="no">01</td><td class="title"><a href="#" data-notice="2">2026 하반기 공연 일정 안내</a></td><td class="writer">NOVA</td><td class="date">2026.09.01</td></tr>
+      </tbody>
+    </table>
+    <p class="empty" id="notice-empty" hidden>No notices found.<span class="ko">해당하는 공지가 없습니다.</span></p>
+    <div class="more-wrap" id="notice-more" hidden><button class="more" type="button">더 보기</button></div>
+  </div>
+</dialog>
+<dialog id="noticeDetail" class="detail">
+  <div class="modal-content">
+    <span class="modal-close" data-close="#noticeDetail" aria-label="Close"></span>
+    <div class="modal-header">
+      <h2 class="modal-kicker">Notice</h2>
+      <div id="nd-title" class="modal-title"></div>
+      <div class="modal-info"><span id="nd-topic">NOVA</span><span id="nd-date"></span></div>
+    </div>
+    <div id="nd-body" class="modal-body"></div>
+    <div class="modal-nav"><a class="bracket" href="#" id="nd-prev">Prev</a><a class="bracket" href="#" id="nd-next">Next</a></div>
+  </div>
+</dialog>
+<script>window.NOVA_EMAIL = "vjvorxmthdud@naver.com";</script>
+<script>window.GALLERY = [{"y": 2026, "d": "09.09", "t": "AOCMP 2026 및 제72회 한국의학물리학회 추계학술대회", "v": "부산항전시컨벤션센터", "photos": ["live-aocmp.jpg", "stage-blue.jpg"]}, {"y": 2026, "d": "08.07", "t": "꿈꾸는 예술무대 <PAN : ON>", "v": "경주 교촌마을", "photos": ["nova-panon-gyeongju.jpg", "ensemble-hanbok.jpg", "busking-pink.jpg"]}, {"y": 2026, "d": "05.18", "t": "아시아물리올림피아드 개막식", "v": "부경대학교 대학극장", "photos": ["live-apho.jpg"]}, {"y": 2025, "d": "11.22", "t": "차도 마시Go, 국악도 듣Go, 춤도 추Go", "v": "김해한옥체험관", "photos": ["live-gimhae.jpg", "stage-pink.jpg"]}, {"y": 2025, "d": "11.19", "t": "NMJ 2025 행사 공연", "v": "영주 선비세상", "photos": ["live-nmj.jpg"]}, {"y": 2025, "d": "08.30", "t": "대구 국가유산야행", "v": "경상감영공원", "photos": ["nova-hero-daegu.jpg", "stage-spotlight.jpg", "ensemble-suit.jpg"]}];</script>
+<script>window.ARTISTS = [{"slug": "soyeong", "ko": "이소영", "en": "Soyeong Lee", "role": "Daegeum", "roleKo": "대금", "img": "images/portrait-grey-2.jpg", "pos": "56% 23%", "bio": [["Soyeong Lee is a daegeum player. On the breath of jeongak and sanjo she layers the sounds of today, exploring how the daegeum can change a stage and a room.", "이소영은 대금 연주자다. 정악과 산조의 호흡 위에 동시대의 소리를 얹어, 대금이 무대와 공간을 어떻게 바꾸는지 탐구한다."], ["She gave her first daegeum recital, [Time's Rift (闖塞)], and released a live recording of Moon Shadow on YouTube.", "제 1회 대금독주회 [시간의 틈새(闖塞)] 를 열었고, 실황 가운데 달 그림자를 유튜브에 공개했다."]], "links": [["YouTube", "https://www.youtube.com/@%EC%9D%B4%EC%86%8C%EC%98%81-k3q"]], "career": [["edu", "2021.02", "부산대학교 대학원 한국음악학과 석사과정 수료"], ["edu", "2019.03", "부산대학교 대학원 한국음악학과 석사과정 입학"], ["edu", "2019.02", "부산대학교 한국음악학과 졸업"], ["edu", "2015.03", "부산대학교 한국음악학과 입학"], ["career", "2026.03", "제 1회 대금독주회 [시간의 틈새(闖塞)]"], ["career", "2025.12", "[예시] 송년 국악 음악회 협연"], ["career", "2025.09", "[예시] 부산 국제 음악제 출연"], ["career", "2025.05", "뮤직 프로젝트 노바 창단 멤버"], ["career", "2024.11", "[예시] 국립부산국악원 기획공연 협연"], ["career", "2023.06", "[예시] 부산시립국악관현악단 객원 연주"], ["award", "2024.08", "[예시] 전국 국악 경연대회 대금 부문 금상"], ["award", "2023.10", "[예시] 부산 국악 대전 일반부 대상"], ["award", "2021.06", "[예시] 영남 국악 경연대회 관악 부문 은상"], ["award", "2019.11", "[예시] 전국 대학 국악 경연대회 장려상"]]}, {"slug": "chaerin", "ko": "김채린", "en": "Chaerin Kim", "role": "Geomungo", "roleKo": "거문고", "img": null, "pos": null, "bio": [], "links": [], "career": []}, {"slug": "yukyung", "ko": "황유경", "en": "Yukyung Hwang", "role": "Haegeum", "roleKo": "해금", "img": null, "pos": null, "bio": [], "links": [], "career": []}, {"slug": "jeonghyun", "ko": "전정현", "en": "Jeonghyun Jeon", "role": "Percussion", "roleKo": "타악", "img": null, "pos": null, "bio": [], "links": [], "career": []}, {"slug": "hanbyeol", "ko": "손한별", "en": "Hanbyeol Son", "role": "Daegeum", "roleKo": "대금", "img": null, "pos": null, "bio": [], "links": [], "career": []}];</script>
+<script>window.NOTICES = [{"topic": "pin", "title": "공연 섭외와 협업 문의 안내", "date": "2026.08.15", "body": ["공연 섭외, 협업, 촬영 문의는 이메일(vjvorxmthdud@naver.com)이나 인스타그램 메시지로 받고 있습니다.", "행사명, 일시, 장소, 희망 구성(인원과 시간)을 함께 보내 주시면 빠르게 답변드리겠습니다."]}, {"topic": "nova", "title": "뮤직 프로젝트 노바 홈페이지가 오픈되었습니다", "date": "2026.11.03", "body": ["뮤직 프로젝트 노바의 공식 홈페이지가 오픈되었습니다.", "ABOUT 에서 노바를 소개하고, ARTISTS 에서 다섯 연주자의 소개와 약력을, HISTORY 에서 그동안 함께한 무대를, GALLERY 에서 공연 사진을 보실 수 있습니다.", "공연 섭외와 협업, 촬영 문의는 CONTACT 의 양식이나 이메일, 인스타그램 메시지로 받고 있습니다.", "앞으로 공연 일정과 소식을 이곳 NOTICE 와 인스타그램에서 가장 먼저 알려 드리겠습니다. 많은 관심 부탁드립니다."]}, {"topic": "nova", "title": "2026 하반기 공연 일정 안내", "date": "2026.09.01", "body": ["2026년 하반기 노바의 공연 일정을 안내드립니다.", "09.09 AOCMP 2026 및 제72회 한국의학물리학회 추계학술대회 축하공연, 부산항전시컨벤션센터.", "이후 일정은 확정되는 대로 이곳과 인스타그램에 공지하겠습니다."]}];</script>
+<script src="main.js?v=1793693421"></script>
+</body>
+</html>

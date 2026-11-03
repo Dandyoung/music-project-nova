@@ -1,0 +1,16 @@
+# 사이트에 올리지 않는 것 : 샘플 페이지, 스크린샷, 데모, 임시
+screenshots/
+_multipage/
+audio/
+video/
+*-sample.html
+*-samples.html
+notice-demo.html
+design.html
+.DS_Store
+images/hanbok-blue.jpg
+images/hanbok-purple-side.jpg
+images/hero-poster.jpg
+images/lake-bw.jpg
+images/profile-grey.jpg
+images/studio-white.jpg
