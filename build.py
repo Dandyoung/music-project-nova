@@ -298,7 +298,7 @@ page = f'''<!doctype html>
       </div>
     </div>
     <div class="artist-nav"><a href="#" id="ar-prev"><span class="dir">Prev</span></a><a href="#" class="more list" data-open="#artistsDialog">목록</a><a href="#" id="ar-next"><span class="dir">Next</span></a></div>
-''') + history_dialog() + gallery_dialog() + dialog("contactDialog", "06 / Contact", "문의", '''    <p class="intro">공연 섭외, 협업, 촬영 문의는 아래 양식으로 접수합니다. 이메일과 인스타그램 메시지로도 받고 있습니다.</p>
+''') + history_dialog() + gallery_dialog() + dialog("contactDialog", "06 / Contact", "문의", '''    <p class="intro">공연 섭외, 협업, 촬영 문의는 아래 양식이나 인스타그램 메시지로 남겨 주세요.</p>
   <div class="info"><h2>MUSIC PROJECT NOVA</h2><div class="v">대표 이소영<br>부산, 대한민국<small>Busan, Republic of Korea</small></div><div class="r"><a href="mailto:''' + NOVA_EMAIL + '''">''' + NOVA_EMAIL + '''</a></div></div>
   <div class="info"><h2>SNS</h2><div class="v"><a href="''' + NOVA_IG + '''" target="_blank" rel="noreferrer">Instagram @proj.nova_</a><br><a href="''' + NOVA_YT + '''" target="_blank" rel="noreferrer">YouTube Music Project NOVA</a></div><div class="r"></div></div>
 
