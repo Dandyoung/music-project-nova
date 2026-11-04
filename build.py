@@ -365,11 +365,11 @@ page = f'''<!doctype html>
           </tbody></table></li>
       </ol>
     </div>
-''') + dialog("noticeDialog", "05 / Notice", "공지", f'''    <div class="search"><input id="notice-search" type="search" placeholder="Search" autocomplete="off"><span class="icon"></span></div>
+''') + dialog("noticeDialog", "05 / Notice", "공지", f'''    <div class="nbar"><div class="search"><input id="notice-search" type="search" placeholder="Search" autocomplete="off"><span class="icon"></span></div><p class="vis"><span class="dot"></span>Now <b id="vis-now">-</b> Total <b id="vis-total">-</b></p></div>
     <table class="list" id="notice-table">
       <thead><tr><th>No.</th><th>Title</th><th>Writer</th><th>Date</th></tr></thead>
       <tbody>
-''' + ''.join(f'        <tr data-topic="{c}" data-id="{i}"{" class=\"pinned\"" if c == "pin" else ""}><td class="no">{"" if c == "pin" else f"{nums[i]:02d}"}</td><td class="title"><a href="#" data-notice="{i}">{H.escape(t)}</a></td><td class="writer">NOVA</td><td class="date">{d}</td></tr>\n' for i, (c, t, d, body) in enumerate(notices)) + '''      </tbody>
+''' + ''.join(f'        <tr data-topic="{c}" data-id="{i}"{" class=\"pinned\"" if c == "pin" else ""}><td class="no">{"<svg class=\"pinicon\" viewBox=\"0 0 24 24\" aria-label=\"고정\"><path d=\"M14 3l7 7-3 1-3.5 3.5L15 20l-4-4-6 6 6-6-4-4 5.5.5L16 9l1-3z\"/></svg>" if c == "pin" else f"{nums[i]:02d}"}</td><td class="title"><a href="#" data-notice="{i}">{H.escape(t)}</a></td><td class="writer">NOVA</td><td class="date">{d}</td></tr>\n' for i, (c, t, d, body) in enumerate(notices)) + '''      </tbody>
     </table>
     <p class="empty" id="notice-empty" hidden>No notices found.<span class="ko">해당하는 공지가 없습니다.</span></p>
     <div class="more-wrap" id="notice-more" hidden><button class="more" type="button">더 보기</button></div>

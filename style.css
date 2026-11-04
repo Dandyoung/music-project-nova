@@ -286,6 +286,12 @@ dialog .actions { display: flex; flex-wrap: wrap; gap: 12px 28px; margin-top: 28
 @keyframes ck-draw { to { stroke-dashoffset: 0; } }
 
 /* ---------- Notice : 검색 한 줄 + 표 (No. / Title / Writer / Date). oddatelier 의 notice 와 같은 짜임 ---------- */
+/* 공지 머리줄 : 검색창 왼쪽, 오른쪽 끝에 접속 중 / 누적 방문 */
+.nbar { display: flex; justify-content: space-between; align-items: flex-end; margin: 0 0 56px; }
+.nbar .search { margin: 0; }
+.vis { margin: 0; padding-bottom: 10px; font-size: 11px; letter-spacing: .18em; text-transform: uppercase; font-weight: 400; opacity: .55; white-space: nowrap; }
+.vis b { font-weight: 400; margin: 0 14px 0 6px; }
+.vis .dot { display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: var(--coral); margin-right: 6px; vertical-align: 1px; }
 .search { width: 560px; max-width: 100%; margin: 0 0 56px; position: relative; }
 .search input { width: 100%; background: none; border: 0; border-bottom: 1px solid var(--ink); color: var(--ink); font-family: var(--font); font-size: 15px; font-weight: 300; letter-spacing: .06em; padding: 6px 30px 10px 0; outline: none; border-radius: 0; -webkit-appearance: none; appearance: none; }
 .search input::-webkit-search-cancel-button { display: none; }
@@ -298,8 +304,7 @@ table.list td { padding: 20px 0; border-bottom: 1px solid rgba(24, 24, 24, .18);
 table.list .no, table.list th:first-child { width: 72px; }
 /* 고정 공지 : 줄 전체를 연한 베이지로 (샘플 B). 번호 없음 */
 table.list tr.pinned td { background: #f4f1ee; }
-/* 바탕을 표 바깥으로 14px 늘려도 글자 자리는 다른 줄과 같게 */
-table.list tr.pinned td:first-child { box-shadow: -14px 0 0 #f4f1ee; } table.list tr.pinned td:last-child { box-shadow: 14px 0 0 #f4f1ee; }
+table.list .pinicon { width: 15px; height: 15px; fill: none; stroke: var(--coral); stroke-width: 1.6; stroke-linejoin: round; stroke-linecap: round; vertical-align: -2px; }
 table.list tr.pinned .title { font-weight: 400; }
 table.list .title { font-size: 17px; font-weight: 300; padding-right: 24px; }
 table.list .title a { display: inline-block; position: relative; }
@@ -445,6 +450,7 @@ dialog.detail[open] { display: block; }
   .career .blk:last-child { padding-bottom: 0; }
   .cols { grid-template-columns: 1fr; gap: 40px; }
   .text { padding: 0; } .ptabs { margin-bottom: 30px; }   /* Notice 모바일 : oddatelier 처럼 줄마다 "NOVA  2026.08.18" 작은 줄 위, 제목 아래. 번호 열은 숨김 */
+  .nbar { flex-direction: column; align-items: stretch; gap: 10px; margin-bottom: 24px; } .vis { text-align: right; padding: 0; }
   .search { width: calc(100% - 40px); margin: 0 auto 24px; }
   table.list thead { display: none; }
   table.list, table.list tbody { display: block; }
@@ -457,8 +463,9 @@ dialog.detail[open] { display: block; }
   table.list .title { grid-column: 1 / -1; grid-row: 2; font-size: 16px; font-weight: 400; line-height: 1.45; padding-right: 0; min-width: 0; }
   table.list .title a { display: block; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
   table.list .title a::after { display: none; }
-  table.list tr.pinned { background: #f4f1ee; padding-left: 14px; padding-right: 14px; margin: 0 -14px; }
-  table.list tr.pinned td { background: none; } table.list tr.pinned td:first-child, table.list tr.pinned td:last-child { padding: 0; }
+  table.list tr.pinned { background: #f4f1ee; grid-template-columns: auto auto 1fr; }
+  table.list tr.pinned td { background: none; }
+  table.list tr.pinned .no { display: block; grid-column: 1; grid-row: 1; width: auto; } table.list tr.pinned .writer { grid-column: 2; } table.list tr.pinned .date { grid-column: 3; }
   .hhero { height: 44vh; min-height: 300px; } .hhero .cap { bottom: 36px; } #showsDialog .hhero h2 { font-size: 22px; } .hhero .sub { font-size: 13px; line-height: 1.7; }
   #showsDialog .wrapper { padding: 40px var(--gutter) 70px; } #showsDialog .wrapper > h2 { margin-bottom: 22px; }
   .hcards { grid-template-columns: 1fr; } .hcard { padding: 0 0 40px; }

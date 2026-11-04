@@ -320,3 +320,25 @@ f.addEventListener("submit", (e) => {
 });
 
 })();
+
+// ---- 방문자 수 (Notice 머리줄) : 외부 카운터 Abacus. 누적은 열 때마다 1, 접속 중은 20초마다 신호를 보내 최근 1분(3칸) 중 최댓값 ----
+(function () {
+  const nowEl = $("#vis-now"), totEl = $("#vis-total"); if (!nowEl) return;
+  const NS = "music-project-nova", API = "https://abacus.jasoncameron.dev";
+  const fmt = (n) => Number(n).toLocaleString("ko-KR");
+  const j = (u) => fetch(u).then((r) => r.json());
+  j(`${API}/hit/${NS}/total`).then((r) => { totEl.textContent = fmt(r.value); }).catch(() => {});
+  let lastSlot = -1;
+  const ping = async () => {
+    const slot = Math.floor(Date.now() / 20000);   // 20초 칸
+    if (slot === lastSlot) return; lastSlot = slot;
+    try {
+      const cur = await j(`${API}/hit/${NS}/s${slot}`);
+      const [a, b] = await Promise.all([j(`${API}/get/${NS}/s${slot - 1}`).catch(() => ({ value: 0 })), j(`${API}/get/${NS}/s${slot - 2}`).catch(() => ({ value: 0 }))]);
+      // 각 20초 칸에는 열려 있는 브라우저마다 1 씩 들어오므로, 최근 세 칸 중 가장 큰 값이 접속 중인 수
+      nowEl.textContent = fmt(Math.max(1, cur.value, a.value || 0, b.value || 0));
+    } catch (_) {}
+  };
+  ping(); setInterval(ping, 20000);
+  document.addEventListener("visibilitychange", () => { if (!document.hidden) ping(); });
+})();
