@@ -8,7 +8,8 @@ import json
 MARK = '<img class="wordmark" src="images/nova-mark.png" alt="NOVA">'
 NOVA_IG = "https://www.instagram.com/proj.nova_"
 NOVA_YT = "https://www.youtube.com/@projectnova-o2b"
-NOVA_EMAIL = "vjvorxmthdud@naver.com"   # 노바 이메일이 오면 여기에. 비어 있으면 메뉴 푸터, About, 섭외 공지에서 자동으로 빠진다
+NOVA_EMAIL = "vjvorxmthdud@naver.com"
+NOVA_TEL = "010-1234-5678"   # 실제 번호가 오면 여기에   # 노바 이메일이 오면 여기에. 비어 있으면 메뉴 푸터, About, 섭외 공지에서 자동으로 빠진다
 SY_IG = None   # 소영 인스타 주소가 나오면 넣고 프로필에 [ INSTAGRAM ] 을 추가한다
 SY_YT = "https://www.youtube.com/@%EC%9D%B4%EC%86%8C%EC%98%81-k3q"
 SY_VID = "https://youtu.be/wyKtAE_AEEo"
@@ -299,7 +300,7 @@ page = f'''<!doctype html>
     </div>
     <div class="artist-nav"><a href="#" id="ar-prev"><span class="dir">Prev</span></a><a href="#" class="more list" data-open="#artistsDialog">목록</a><a href="#" id="ar-next"><span class="dir">Next</span></a></div>
 ''') + history_dialog() + gallery_dialog() + dialog("contactDialog", "06 / Contact", "문의", '''    <p class="intro">공연 섭외, 협업, 촬영 문의는 아래 양식이나 인스타그램 메시지로 남겨 주세요.</p>
-  <div class="info"><h2>MUSIC PROJECT NOVA</h2><div class="v"><span class="cl"><svg class="ci" viewBox="0 0 24 24"><circle cx="12" cy="8" r="3.6"/><path d="M4.5 20a7.5 7.5 0 0 1 15 0"/></svg>대표 이소영</span><span class="cl"><svg class="ci" viewBox="0 0 24 24"><path d="M12 21s-6-5.3-6-10a6 6 0 0 1 12 0c0 4.7-6 10-6 10z"/><circle cx="12" cy="11" r="2.2"/></svg><span>부산, 대한민국<small>Busan, Republic of Korea</small></span></span></div><div class="r"><a class="cl" href="mailto:''' + NOVA_EMAIL + '''"><svg class="ci" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="1.5"/><path d="M3 7l9 6 9-6"/></svg>''' + NOVA_EMAIL + '''</a></div></div>
+  <div class="info"><h2>MUSIC PROJECT NOVA</h2><div class="v"><span class="cl"><svg class="ci" viewBox="0 0 24 24"><circle cx="12" cy="8" r="3.6"/><path d="M4.5 20a7.5 7.5 0 0 1 15 0"/></svg>대표 이소영</span><span class="cl"><svg class="ci" viewBox="0 0 24 24"><path d="M12 21s-6-5.3-6-10a6 6 0 0 1 12 0c0 4.7-6 10-6 10z"/><circle cx="12" cy="11" r="2.2"/></svg><span>부산, 대한민국<small>Busan, Republic of Korea</small></span></span></div><div class="r"><div class="stack"><a class="cl" href="mailto:''' + NOVA_EMAIL + '''"><svg class="ci" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="1.5"/><path d="M3 7l9 6 9-6"/></svg>''' + NOVA_EMAIL + '''</a><a class="cl" href="tel:''' + NOVA_TEL.replace("-", "") + '''"><svg class="ci" viewBox="0 0 24 24"><path d="M6.5 3h3l1.5 4-2 1.5a11 11 0 0 0 6.5 6.5L17 13l4 1.5v3a2 2 0 0 1-2 2A16 16 0 0 1 4.5 5a2 2 0 0 1 2-2z"/></svg>''' + NOVA_TEL + '''</a></div></div></div>
   <div class="info"><h2>SNS</h2><div class="v"><a class="cl" href="''' + NOVA_IG + '''" target="_blank" rel="noreferrer"><svg class="ci" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r=".9" fill="currentColor" stroke="none"/></svg>Instagram @proj.nova_</a><a class="cl" href="''' + NOVA_YT + '''" target="_blank" rel="noreferrer"><svg class="ci" viewBox="0 0 24 24"><rect x="2.5" y="6" width="19" height="12" rx="3.5"/><path d="M10 9.5v5l4.5-2.5z" fill="currentColor" stroke="none"/></svg>YouTube Music Project NOVA</a></div><div class="r"></div></div>
 
   <section class="inq" id="inquiry">
