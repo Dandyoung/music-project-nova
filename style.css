@@ -307,6 +307,9 @@ table.list { width: 100%; border-collapse: collapse; }
 table.list th { text-align: left; font-size: 11px; font-weight: 400; letter-spacing: .18em; text-transform: uppercase; padding: 0 0 12px; border-bottom: 1px solid var(--ink); }
 table.list td { padding: 20px 0; border-bottom: 1px solid rgba(24, 24, 24, .18); vertical-align: middle; font-size: 15px; font-weight: 300; }
 table.list .no, table.list th:first-child { width: 72px; }
+/* 양끝에서 16px 띄운다 (머리글과 줄 모두). 모바일은 따로 */
+table.list th:first-child, table.list td:first-child { padding-left: 16px; }
+table.list th:last-child, table.list td:last-child { padding-right: 16px; }
 /* 고정 공지 : 줄 전체를 연한 베이지로 (샘플 B). 번호 없음 */
 table.list tr.pinned td { background: #f4f1ee; }
 table.list .pinicon { width: 15px; height: 15px; fill: none; stroke: var(--coral); stroke-width: 1.6; stroke-linejoin: round; stroke-linecap: round; vertical-align: -2px; }
@@ -469,6 +472,7 @@ dialog.detail[open] { display: block; }
   table.list tr[hidden] { display: none; }
   table.list td { display: block; padding: 0; border: 0; width: auto; }
   table.list .no { display: none; }
+  table.list td:first-child, table.list td:last-child { padding-left: 0; padding-right: 0; }
   table.list .writer { grid-column: 1; grid-row: 1; width: auto; font-size: 12px; letter-spacing: .1em; }
   table.list .date { grid-column: 2; grid-row: 1; width: auto; text-align: left; font-size: 12px; letter-spacing: .06em; }
   table.list .title { grid-column: 1 / -1; grid-row: 2; font-size: 16px; font-weight: 400; line-height: 1.45; padding-right: 0; min-width: 0; }
