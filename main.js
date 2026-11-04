@@ -328,15 +328,15 @@ f.addEventListener("submit", (e) => {
   const fmt = (n) => Number(n).toLocaleString("ko-KR");
   const j = (u) => fetch(u).then((r) => r.json());
   j(`${API}/hit/${NS}/total`).then((r) => { totEl.textContent = fmt(r.value); }).catch(() => {});
-  let lastSlot = -1;
+  let lastSlot = -1; const mine = new Set();
   const ping = async () => {
     const slot = Math.floor(Date.now() / 20000);   // 20초 칸
     if (slot === lastSlot) return; lastSlot = slot;
     try {
-      const cur = await j(`${API}/hit/${NS}/s${slot}`);
-      // 아직 아무도 신호를 안 보낸 칸은 404 라 0 으로 (콘솔 오류 없이)
-      const g = (u) => fetch(u).then((r) => (r.ok ? r.json() : { value: 0 })).catch(() => ({ value: 0 }));
-      const [a, b] = await Promise.all([g(`${API}/get/${NS}/s${slot - 1}`), g(`${API}/get/${NS}/s${slot - 2}`)]);
+      const cur = await j(`${API}/hit/${NS}/s${slot}`); mine.add(slot);
+      // 앞 칸은 이 브라우저가 직접 신호를 보낸 칸만 읽는다 (없는 칸을 읽으면 브라우저 콘솔에 404 가 찍히므로)
+      const g = (k) => (mine.has(k) ? j(`${API}/get/${NS}/s${k}`).catch(() => ({ value: 0 })) : Promise.resolve({ value: 0 }));
+      const [a, b] = await Promise.all([g(slot - 1), g(slot - 2)]);
       // 각 20초 칸에는 열려 있는 브라우저마다 1 씩 들어오므로, 최근 세 칸 중 가장 큰 값이 접속 중인 수
       nowEl.textContent = fmt(Math.max(1, cur.value, a.value || 0, b.value || 0));
     } catch (_) {}

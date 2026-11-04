@@ -297,7 +297,7 @@ dialog .actions { display: flex; flex-wrap: wrap; gap: 12px 28px; margin-top: 28
 .vis { margin: 0; padding-bottom: 10px; font-size: 11px; letter-spacing: .18em; text-transform: uppercase; font-weight: 400; opacity: .78; white-space: nowrap; }
 .vis b { font-weight: 400; margin: 0 14px 0 6px; }
 .vis .dot { display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: var(--coral); margin-right: 6px; vertical-align: 1px; }
-.search { width: 560px; max-width: 100%; margin: 0 0 56px; position: relative; }
+.search { width: 640px; max-width: 100%; margin: 0 0 56px; position: relative; }
 .search input { width: 100%; background: none; border: 0; border-bottom: 1px solid var(--ink); color: var(--ink); font-family: var(--font); font-size: 15px; font-weight: 300; letter-spacing: .06em; padding: 6px 30px 10px 0; outline: none; border-radius: 0; -webkit-appearance: none; appearance: none; }
 .search input::-webkit-search-cancel-button { display: none; }
 .search input::placeholder { color: rgba(24, 24, 24, .45); }
@@ -462,7 +462,7 @@ dialog.detail[open] { display: block; }
   .cols { grid-template-columns: 1fr; gap: 40px; }
   .text { padding: 0; } .ptabs { margin-bottom: 30px; }   /* Notice 모바일 : oddatelier 처럼 줄마다 "NOVA  2026.08.18" 작은 줄 위, 제목 아래. 번호 열은 숨김 */
   .nbar { flex-direction: column; align-items: stretch; gap: 10px; margin-bottom: 24px; } .vis { text-align: right; padding: 0; }
-  .search { width: calc(100% - 40px); margin: 0 auto 24px; }
+  .search { width: 100%; margin: 0 0 24px; }
   table.list thead { display: none; }
   table.list, table.list tbody { display: block; }
   table.list tr { display: grid; grid-template-columns: auto 1fr; column-gap: 14px; row-gap: 8px; padding: 18px 0; border-bottom: 1px solid rgba(24, 24, 24, .18); }
