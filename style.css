@@ -93,7 +93,7 @@ dialog[open] { display: block; overflow-y: auto; overscroll-behavior: contain; }
 :focus { outline: none; }
 :focus-visible { outline: 2px solid var(--coral-text); outline-offset: 3px; }
 #menu-trigger:focus-visible, #menu-close:focus-visible, #social a:focus-visible, .mail-open:focus-visible, #menuDialog :focus-visible, .dlg-bar :focus-visible, #aboutDialog :focus-visible, .totop:focus-visible { outline-color: var(--coral); }
-.search input:focus-visible, #contactDialog .f input:focus-visible, #contactDialog .f select:focus-visible, #contactDialog .f textarea:focus-visible { outline-offset: 2px; }
+.search input:focus-visible, #contactDialog .f input:focus-visible, #contactDialog .f select:focus-visible, #contactDialog .f textarea:focus-visible { outline: 2px solid var(--coral-text); outline-offset: 2px; }
 .dlg-home img { height: 22px; width: auto; display: block; }
 /* MENU 글자 : 대문자 높이가 마크 높이와 같은 글자 크기(22px, 모바일 18px) */
 .dlg-back, .dlg-menu { font-size: 22px; line-height: 1; text-transform: uppercase; letter-spacing: .04em; cursor: pointer; font-weight: 600; transition: color .3s var(--ease); }
