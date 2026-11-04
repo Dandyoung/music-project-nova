@@ -320,7 +320,7 @@ page = f'''<!doctype html>
         <div class="f"><span>이메일<b>*</b></span><input name="email" type="email" placeholder="이메일 주소를 입력해 주세요."><p class="msg">이메일 주소를 입력해 주세요.</p></div>
         <div class="f" id="f-date"><span><em>행사 일시</em></span><input name="date" type="text" placeholder="예: 2026.12.20 (토) 오후 7시. 미정 시 미정으로 기재"></div>
       </div>
-      <div class="f" id="f-place"><span><em>행사 장소</em></span><input name="place" type="text" placeholder="예: 부산문화회관 중극장. 미정 시 미정으로 기재"></div>
+      <div class="f" id="f-place"><span><em>행사 장소</em></span><input name="place" type="text" placeholder="예: 부산문화회관 대극장. 미정 시 미정으로 기재"></div>
       <div class="f" id="f-desc"><span><em>문의 내용</em><b>*</b></span><textarea name="desc" placeholder="행사 성격, 희망 구성(인원과 시간), 관객 규모, 음향 장비 유무, 예산 범위 등"></textarea><p class="msg">문의 내용을 입력해 주세요.</p></div>
 
       <div class="agree" id="ag1">
