@@ -241,7 +241,21 @@ page = f'''<!doctype html>
 <meta charset="utf-8">
 <title>NOVA, Music Project</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="description" content="Music Project NOVA 뮤직 프로젝트 노바. 전통의 깊이, 새로운 울림.">
+<meta name="description" content="전통의 깊이, 새로운 울림. 국악 앙상블 뮤직 프로젝트 노바">
+<!-- 링크 카드 (카카오톡, 인스타 DM, 문자, 페이스북, X) : 1200x630 이미지는 images/og-cover.jpg -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Music Project NOVA">
+<meta property="og:title" content="Music Project NOVA">
+<meta property="og:description" content="전통의 깊이, 새로운 울림. 국악 앙상블 뮤직 프로젝트 노바">
+<meta property="og:url" content="https://musicprojectnova.com/">
+<meta property="og:image" content="https://musicprojectnova.com/images/og-cover.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="ko_KR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Music Project NOVA">
+<meta name="twitter:description" content="전통의 깊이, 새로운 울림. 국악 앙상블 뮤직 프로젝트 노바">
+<meta name="twitter:image" content="https://musicprojectnova.com/images/og-cover.jpg">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@200;300;400;600;700&family=Gothic+A1:wght@200;300;400;500;700&display=swap" rel="stylesheet">
