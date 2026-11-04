@@ -476,7 +476,9 @@ dialog.detail[open] { display: block; }
   table.list .title a::after { display: none; }
   table.list tr.pinned { background: #f4f1ee; grid-template-columns: auto auto 1fr; }
   table.list tr.pinned td { background: none; }
-  table.list tr.pinned .no { display: block; grid-column: 1; grid-row: 1; width: auto; } table.list tr.pinned .writer { grid-column: 2; } table.list tr.pinned .date { grid-column: 3; }
+  /* 고정 공지 : 핀을 NOVA 앞에, 글자와 같은 줄 높이로 */
+  table.list tr.pinned .no { display: flex; align-items: center; grid-column: 1; grid-row: 1; width: auto; padding-right: 2px; } table.list tr.pinned .writer { grid-column: 2; } table.list tr.pinned .date { grid-column: 3; }
+  table.list tr.pinned .pinicon { width: 14px; height: 14px; vertical-align: 0; margin-top: -1px; }
   .hhero { height: 44vh; min-height: 300px; } .hhero .cap { bottom: 36px; } #showsDialog .hhero h2 { font-size: 22px; } .hhero .sub { font-size: 13px; line-height: 1.7; }
   #showsDialog .wrapper { padding: 40px var(--gutter) 70px; } #showsDialog .wrapper > h2 { margin-bottom: 22px; }
   .hcards { grid-template-columns: 1fr; } .hcard { padding: 0 0 40px; }
