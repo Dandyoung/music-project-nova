@@ -479,7 +479,16 @@ dialog.detail[open] { display: block; }
   .modal-close { top: 16px; right: 16px; width: 18px; height: 18px; }
   .modal-kicker { font-size: 15px; margin-bottom: 30px; }
   .modal-info { padding: 10px 0 30px; }
-  .grid { grid-template-columns: 1fr 1fr; gap: 20px; }
+  /* 아티스트 : 모바일은 한 줄. 사진은 폰 폭 가득 정사각, Coming soon 칸은 낮게 */
+  .grid { grid-template-columns: 1fr; gap: 36px; }
+  .artist .frame { aspect-ratio: 1 / 1; }
+  .artist.soon .frame { aspect-ratio: auto; height: 55px; }
+  .artist.soon .frame div { line-height: 1; white-space: nowrap; } .artist.soon .frame div br { display: none; } .artist.soon .frame div::first-line { word-spacing: .6em; }
+  /* 이름과 악기를 한 줄에 : 왼쪽 이름, 오른쪽 끝 악기 */
+  /* 가운데를 기준으로 왼쪽에 이름, 오른쪽에 악기. 양 끝에 붙지 않게 */
+  .artist .meta { padding-top: 14px; flex-direction: row; align-items: baseline; justify-content: center; gap: 18px; flex-wrap: nowrap; }
+  .artist .name { flex: 0 0 auto; }
+  .artist .inst { align-self: auto; flex: 0 0 auto; font-size: 14px; letter-spacing: 0; }
   .artist .name { font-size: 16px; }
   .year h3 { font-size: 44px; }
 }

@@ -105,7 +105,7 @@ def tiles():
         media = f'<img src="{img}" alt="" style="object-position: {pos}">' if img else f'<div class="ph" data-inst="{role.upper()} / {KO_ROLE[role]}"></div>'
         out += (f'      <a class="artist" href="#artists/{slug}" data-artist="{slug}" data-i="{(i - 1) % 3}"><div class="frame">{media}<span class="view">View profile <i>&rarr;</i></span></div>'
                 f'<div class="meta"><div class="name">{ko}<small>{en}</small></div><div class="inst">{KO_ROLE[role]} / {role}</div></div></a>\n')
-    out += '      <div class="artist soon" data-i="2"><div class="frame"><div>Coming<br>soon</div></div></div>\n'
+    out += '      <div class="artist soon" data-i="2"><div class="frame"><div>Coming <br>soon</div></div></div>\n'
     return out
 
 
