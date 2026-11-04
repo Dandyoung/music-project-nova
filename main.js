@@ -334,7 +334,9 @@ f.addEventListener("submit", (e) => {
     if (slot === lastSlot) return; lastSlot = slot;
     try {
       const cur = await j(`${API}/hit/${NS}/s${slot}`);
-      const [a, b] = await Promise.all([j(`${API}/get/${NS}/s${slot - 1}`).catch(() => ({ value: 0 })), j(`${API}/get/${NS}/s${slot - 2}`).catch(() => ({ value: 0 }))]);
+      // 아직 아무도 신호를 안 보낸 칸은 404 라 0 으로 (콘솔 오류 없이)
+      const g = (u) => fetch(u).then((r) => (r.ok ? r.json() : { value: 0 })).catch(() => ({ value: 0 }));
+      const [a, b] = await Promise.all([g(`${API}/get/${NS}/s${slot - 1}`), g(`${API}/get/${NS}/s${slot - 2}`)]);
       // 각 20초 칸에는 열려 있는 브라우저마다 1 씩 들어오므로, 최근 세 칸 중 가장 큰 값이 접속 중인 수
       nowEl.textContent = fmt(Math.max(1, cur.value, a.value || 0, b.value || 0));
     } catch (_) {}
