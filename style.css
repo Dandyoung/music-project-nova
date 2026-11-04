@@ -361,6 +361,11 @@ dialog.detail[open] { display: block; }
 #contactDialog .info h2 { margin: 0; font-size: 18px; font-weight: 700; letter-spacing: .02em; line-height: 1.5; }
 #contactDialog .info .v { font-size: 14px; font-weight: 300; line-height: 1.8; }
 #contactDialog .info .v small { display: block; opacity: .6; }
+/* 줄마다 앞에 작은 선 아이콘 */
+#contactDialog .cl { display: flex; align-items: flex-start; gap: 10px; }
+#contactDialog .ci { width: 16px; height: 16px; flex: 0 0 16px; fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; margin-top: 4px; opacity: .8; }
+#contactDialog .info .v .cl + .cl { margin-top: 2px; }
+#contactDialog .info .r .cl { justify-content: flex-end; }
 #contactDialog .info a:hover { color: var(--coral); }
 #contactDialog .info .r { font-size: 14px; font-weight: 300; line-height: 1.8; text-align: right; }
 
@@ -412,7 +417,8 @@ dialog.detail[open] { display: block; }
   .dlg-bar { padding: 15px var(--gutter); gap: 14px; background: var(--ink); color: var(--cream); }
   .totop { right: 16px; bottom: 16px; width: 44px; height: 44px; }
   #contactDialog .intro { font-size: 14px; margin-bottom: 30px; }
-  #contactDialog .info { grid-template-columns: 1fr; gap: 8px; padding: 20px 0; } #contactDialog .info .r { text-align: left; }
+  #contactDialog .info { grid-template-columns: 1fr; gap: 8px; padding: 20px 0; }
+  #contactDialog .info .r .cl { justify-content: flex-start; } #contactDialog .info .r { text-align: left; }
   #contactDialog .inq { margin-top: 44px; } #contactDialog .inq h2 { font-size: 22px; }
   #contactDialog .f input, #contactDialog .f select, #contactDialog .f textarea { padding-left: 16px; padding-right: 16px; } #contactDialog .f select { padding-right: 40px; background-position: right 14px center; }
   #contactDialog .two { grid-template-columns: 1fr; }
