@@ -71,7 +71,8 @@ function closePlain(sel) { const d = $(sel); if (d.open) d.close(); }
 function openDetail(i) {
   const n = window.NOTICES[i]; if (!n) return;
   $("#nd-title").textContent = n.title; $("#nd-date").textContent = n.date;
-  $("#nd-body").innerHTML = n.body.map((p) => "<p>" + p + "</p>").join("");
+  // oddatelier 식 : 한글 본문 전체, 가는 선, 영어 본문 전체
+  $("#nd-body").innerHTML = n.body.map((p) => "<p>" + p + "</p>").join("") + (n.en && n.en.length ? '<div class="nd-en">' + n.en.map((p) => "<p>" + p + "</p>").join("") + "</div>" : "");
   $("#nd-prev").hidden = i === 0; $("#nd-next").hidden = i === window.NOTICES.length - 1;
   const d = $("#noticeDetail"); if (!d.open) { d.showModal(); setTimeout(() => d.classList.add("show"), 10); } d.scrollTop = 0;
   if (document.activeElement && d.contains(document.activeElement)) document.activeElement.blur();   // 열릴 때 [ Next ] 에 파란 포커스 테두리가 잡히지 않게
@@ -218,16 +219,20 @@ document.querySelectorAll("[data-close]").forEach((el) => el.addEventListener("c
 (function () {
   const grid = $("#gallery-grid"); if (!grid || !window.GALLERY) return;
   const G = window.GALLERY, cards = [...grid.querySelectorAll(".hcard")], more = $("#gallery-more"), empty = $("#gallery-empty"), tabs = $("#gallery-tabs"), input = $("#gallery-search");
-  const PER = 4; let year = "all", shown = PER, q = "";
+  // 한 줄 단위로 보여준다 : 데스크톱 3열이면 처음 3장, 다음 줄 3장은 흐린 미리보기. 모바일 1열이면 3장 + 미리보기 1장
+  const cols = () => (window.matchMedia("(max-width: 820px)").matches ? 1 : 3);   // 데스크톱 3열, 모바일 1열 (CSS 와 같은 기준)
+  const PER = () => 3, PEEK = () => (cols() >= 3 ? 3 : 1);
+  let year = "all", shown = PER(), q = "";
   const visible = () => G.map((g, i) => i).filter((i) => { const g = G[i]; return (year === "all" || g.y === +year) && (!q || (g.t + " " + g.v).toLowerCase().includes(q)); });
   const draw = () => {
-    const vis = visible(); let n = 0;
-    cards.forEach((c, i) => { const ok = vis.includes(i); if (ok) n++; c.classList.toggle("hid", !ok || n > shown + 2); c.classList.toggle("peek", ok && n > shown && n <= shown + 2); });
+    const vis = visible(); let n = 0; const peek = PEEK();
+    cards.forEach((c, i) => { const ok = vis.includes(i); if (ok) n++; c.classList.toggle("hid", !ok || n > shown + peek); c.classList.toggle("peek", ok && n > shown && n <= shown + peek); });
     empty.hidden = vis.length > 0; more.hidden = vis.length <= shown;
   };
-  tabs.addEventListener("click", (e) => { const b = e.target.closest("button"); if (!b) return; year = b.dataset.y; shown = PER; tabs.querySelectorAll("button").forEach((x) => x.classList.toggle("current", x === b)); draw(); });
-  input.addEventListener("input", () => { q = input.value.trim().toLowerCase(); shown = PER; draw(); });
-  more.querySelector(".more").addEventListener("click", () => { shown += PER; draw(); });
+  tabs.addEventListener("click", (e) => { const b = e.target.closest("button"); if (!b) return; year = b.dataset.y; shown = PER(); tabs.querySelectorAll("button").forEach((x) => x.classList.toggle("current", x === b)); draw(); });
+  input.addEventListener("input", () => { q = input.value.trim().toLowerCase(); shown = PER(); draw(); });
+  more.querySelector(".more").addEventListener("click", () => { shown += PER(); draw(); });
+  window.addEventListener("resize", draw);
   draw();
   cards.forEach((c) => c.addEventListener("click", (e) => { e.preventDefault(); navigate("gallery/" + c.dataset.g); }));
   // 상세 : oddatelier 뉴스 글처럼. 첫 장 크게, 뒤는 두 장씩, 아래 이전 / 목록 / 다음 공연 (현재 탭과 검색 안에서 이동)
@@ -235,12 +240,20 @@ document.querySelectorAll("[data-close]").forEach((el) => el.addEventListener("c
   const layout = (ph) => { const out = []; let i = 0; if (ph.length) { out.push(`<img src="images/${ph[0]}" alt="">`); i = 1; } while (i < ph.length) { if (i + 1 < ph.length) { out.push(`<div class="pair"><img src="images/${ph[i]}" alt="" loading="lazy"><img src="images/${ph[i + 1]}" alt="" loading="lazy"></div>`); i += 2; } else { out.push(`<img src="images/${ph[i]}" alt="" loading="lazy">`); i++; } } return out.join(""); };
   openGalleryView = (i) => {
     const g = G[i]; if (!g) return; cur = i;
-    $("#gv-date").textContent = `${g.y}.${g.d}  /  ${g.v}`; $("#gv-title").textContent = g.t; $("#gv-photos").innerHTML = layout(g.photos);
-    const vis = visible(), k = vis.indexOf(i), p = vis[k - 1], n = vis[k + 1];
-    $("#gv-prev").toggleAttribute("disabled", p === undefined); $("#gv-next").toggleAttribute("disabled", n === undefined);
-    if (!view.open) { view.showModal(); requestAnimationFrame(() => view.classList.add("show")); }
-    view.scrollTo(0, 0);
-    if (document.activeElement && view.contains(document.activeElement)) document.activeElement.blur();
+    const apply = () => {
+      $("#gv-date").textContent = `${g.y}.${g.d}  /  ${g.v}`; $("#gv-title").textContent = g.t; $("#gv-photos").innerHTML = layout(g.photos);
+      const vis = visible(), k = vis.indexOf(i), p = vis[k - 1], n = vis[k + 1];
+      $("#gv-prev").toggleAttribute("disabled", p === undefined); $("#gv-next").toggleAttribute("disabled", n === undefined);
+      if (!view.open) { view.showModal(); view.classList.add("show"); }
+      view.scrollTo(0, 0);
+      if (document.activeElement && view.contains(document.activeElement)) document.activeElement.blur();
+    };
+    // 프로필처럼 : 누른 카드의 사진이 상세의 첫 사진으로 자연스럽게 커진다 (View Transition)
+    const from = cards[i] && cards[i].querySelector(".img");
+    if (from && document.startViewTransition && !view.open) {
+      from.style.viewTransitionName = "hero";
+      document.startViewTransition(() => { from.style.viewTransitionName = ""; apply(); const first = $("#gv-photos img"); if (first) first.style.viewTransitionName = "hero"; }).finished.then(() => { const first = $("#gv-photos img"); if (first) first.style.viewTransitionName = ""; });
+    } else apply();
   };
   const go = (d) => { const vis = visible(), k = vis.indexOf(cur) + d; if (k >= 0 && k < vis.length) navigate("gallery/" + vis[k], true); };
   $("#gv-prev").addEventListener("click", (e) => { e.preventDefault(); go(-1); });
@@ -268,7 +281,12 @@ const y = document.getElementById("year"); if (y) y.textContent = new Date().get
 // ---- TOP 버튼 : 각 팝업을 300px 넘게 내리면 보이고, 누르면 부드럽게 맨 위로 ----
 document.querySelectorAll("dialog .totop").forEach((btn) => {
   const dlg = btn.closest("dialog");
-  dlg.addEventListener("scroll", () => btn.classList.toggle("on", dlg.scrollTop > 300), { passive: true });
+  // 상단 바(마크, MENU) : 아래로 내리면 숨고 위로 올리면 바로 다시 보인다 (ibighit 식)
+  let last = 0;
+  dlg.addEventListener("scroll", () => {
+    const y = dlg.scrollTop; btn.classList.toggle("on", y > 300);
+    dlg.classList.toggle("bar-hide", y > 80 && y > last); last = y;
+  }, { passive: true });
   btn.addEventListener("click", () => dlg.scrollTo({ top: 0, behavior: "smooth" }));
 });
 

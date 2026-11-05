@@ -20,13 +20,15 @@ members = [
     # (한글, 영문, 악기, slug, 사진, 초점, 소개 [(영문, 한글), ...])
     ("이소영", "Soyeong Lee", "Daegeum", "soyeong", "images/portrait-grey-2.jpg", "56% 23%", [
         ("Soyeong Lee is a daegeum player. On the breath of jeongak and sanjo she layers the sounds of today, exploring how the daegeum can change a stage and a room.", "이소영은 대금 연주자다. 정악과 산조의 호흡 위에 동시대의 소리를 얹어, 대금이 무대와 공간을 어떻게 바꾸는지 탐구한다."),
-        ("She gave her first daegeum recital, [Time's Rift (闖塞)], and released a live recording of Moon Shadow on YouTube.", "제 1회 대금독주회 [시간의 틈새(闖塞)] 를 열었고, 실황 가운데 달 그림자를 유튜브에 공개했다."),
+        ("Moving between traditional and new stages, she keeps widening where the sound of the daegeum can reach.", "전통 무대와 창작 무대를 오가며 대금의 소리가 닿는 자리를 넓혀 가고 있다."),
     ]),
     ("김채린", "Chaerin Kim", "Geomungo", "chaerin", None, None, []),
     ("황유경", "Yukyung Hwang", "Haegeum", "yukyung", None, None, []),
     ("전정현", "Jeonghyun Jeon", "Percussion", "jeonghyun", None, None, []),
     ("손한별", "Hanbyeol Son", "Daegeum", "hanbyeol", None, None, []),
 ]
+# 타일 호버 미리보기 : 멤버당 최대 다섯 줄. 없는 멤버는 안내 한 줄
+PREVIEW = {"soyeong": ["Music Project NOVA 대표", "KBS 국악대경연 단체부문 수상", "부산대학교 한국음악학과 졸업", "제 1회 대금독주회 [시간의 틈새(闖塞)]"]}
 # 멤버별 약력 : (분류, 연도, 한글). 분류는 edu 학력 / career 경력 / award 수상. 각 분류 안에서 최신이 위
 CAREER = {"soyeong": [
     ("edu", "2021.02", "부산대학교 대학원 한국음악학과 석사과정 수료"),
@@ -48,25 +50,38 @@ CAREER = {"soyeong": [
 LINKS = {"soyeong": [("YouTube", SY_YT)]}   # 멤버별 링크. 인스타 주소가 나오면 ("Instagram", url) 추가
 # Notice : (분류, 제목, 날짜, 본문 문단 목록). 분류는 지금 전부 nova. 임시 3건
 notices = [
+    # (분류, 제목, 날짜, 한글 문단들, 영어 문단들). 상세에서는 oddatelier 처럼 한글 전체 뒤에 영어 전체
+    ("nova", "2026 연말 공연 일정 안내", "2026.11.05", [
+        "2026년 연말 노바의 공연 일정을 안내드립니다.",
+        "12월 공연은 확정되는 대로 이곳 NOTICE 와 인스타그램에 올리겠습니다.",
+        "지난 무대는 HISTORY 와 GALLERY 에서 보실 수 있습니다.",
+    ], [
+        "Here is NOVA's performance schedule for the end of 2026.",
+        "December dates will be posted here in NOTICE and on Instagram as soon as they are confirmed.",
+        "Past stages can be found in HISTORY and GALLERY.",
+    ]),
     ("nova", "뮤직 프로젝트 노바 홈페이지가 오픈되었습니다", "2026.11.03", [
         "뮤직 프로젝트 노바의 공식 홈페이지가 오픈되었습니다.",
         "ABOUT 에서 노바를 소개하고, ARTISTS 에서 다섯 연주자의 소개와 약력을, HISTORY 에서 그동안 함께한 무대를, GALLERY 에서 공연 사진을 보실 수 있습니다.",
-        "공연 섭외와 협업, 촬영 문의는 CONTACT 의 양식이나 이메일, 인스타그램 메시지로 받고 있습니다.",
+        "공연 섭외, 협업, 촬영 문의는 CONTACT 메뉴의 문의 양식과 인스타그램 메시지로 받고 있습니다.",
         "앞으로 공연 일정과 소식을 이곳 NOTICE 와 인스타그램에서 가장 먼저 알려 드리겠습니다. 많은 관심 부탁드립니다.",
+    ], [
+        "The official website of Music Project NOVA is now open.",
+        "ABOUT introduces NOVA, ARTISTS presents our five players and their profiles, HISTORY lists the stages we have shared, and GALLERY holds photos from our performances.",
+        "We receive inquiries for performance bookings, collaborations and filming through the form in the CONTACT menu and by Instagram message.",
+        "Upcoming performances and news will be announced first here in NOTICE and on Instagram. Thank you for your interest.",
     ]),
-    ("nova", "2026 하반기 공연 일정 안내", "2026.09.01", [
-        "2026년 하반기 노바의 공연 일정을 안내드립니다.",
-        "09.09 AOCMP 2026 및 제72회 한국의학물리학회 추계학술대회 축하공연, 부산항전시컨벤션센터.",
-        "이후 일정은 확정되는 대로 이곳과 인스타그램에 공지하겠습니다.",
-    ]),
-    ("pin", "공연 섭외와 협업 문의 안내", "2026.08.15", [
-        "공연 섭외, 협업, 촬영 문의는 CONTACT 메뉴의 문의 양식으로 접수합니다. 인스타그램 메시지로도 받고 있습니다.",
-        "유형을 고르고 행사명, 일시, 장소, 희망 구성(인원과 시간)을 적어 주시면 확인 후 이메일로 답변드립니다.",
+    ("pin", "공연 섭외와 협업 문의 안내", "2026.11.04", [
+        "공연 섭외, 협업, 촬영 문의는 CONTACT 메뉴의 문의 양식과 인스타그램 메시지로 받고 있습니다.",
+        "유형을 고르고 행사명, 일시, 장소, 희망 구성(인원과 시간)을 적어 주시면 확인 후 답변드리겠습니다.",
+    ], [
+        "We receive inquiries for performance bookings, collaborations and filming through the form in the CONTACT menu and by Instagram message.",
+        "Select the type of inquiry and include the event name, date, venue and the lineup you have in mind (number of players and duration). We will review it and get back to you.",
     ]),
 ]
 if os.environ.get("NOVA_DEMO_NOTICES"):
     _t = ["2026 하반기 정기연주회 예매 안내", "국립부산국악원 협연 공연 안내", "신입 단원 모집", "여름 워크숍 휴무 안내", "방송 출연 소식"]
-    notices = notices + [("nova", f"[예시] {_t[i % 5]} {i + 1}", f"2026.{(i % 8) + 1:02d}.{(i * 3) % 28 + 1:02d}", ["예시 본문입니다."]) for i in range(17)]
+    notices = notices + [("nova", f"[예시] {_t[i % 5]} {i + 1}", f"2026.{(i % 8) + 1:02d}.{(i * 3) % 28 + 1:02d}", ["예시 본문입니다."], ["Sample body text."]) for i in range(17)]
 # 공연별 사진 목록 : 첫 장이 대표 사진. History 카드와 Gallery 둘 다 여기서 가져간다. 실제 사진이 오면 파일명만 바꾼다
 PHOTOS = {
     "AOCMP 2026 및 제72회 한국의학물리학회 추계학술대회": ["live-aocmp.jpg", "stage-blue.jpg"],
@@ -94,7 +109,7 @@ archive = {
         ("10.17", "개산대제 음악회", "범어사 야외무대", "박성희 & 노바"),
         ("10.16", "제29회 봉화송이축제 / 성이성 문화재 축제", "내성천 체육공원", "봉화군, 봉화축제관광재단"),
         ("08.30", "대구 국가유산야행", "경상감영공원", "대구 중구, 국가유산청"),
-        ("04 - 12", "국립부산국악원 찾아가는 음악회", "초량, 부산진, 운산, 가야, 대연초등학교", ""),
+        ("04.01 ~ 12.31", "국립부산국악원 찾아가는 음악회", "초량, 부산진, 운산, 가야, 대연초등학교", ""),
     ],
 }
 
@@ -104,7 +119,9 @@ def tiles():
     out = ""
     for i, (ko, en, role, slug, img, pos, bio) in enumerate(members, 1):
         media = f'<img src="{img}" alt="" style="object-position: {pos}">' if img else f'<div class="ph" data-inst="{role.upper()} / {KO_ROLE[role]}"></div>'
-        out += (f'      <a class="artist" href="#artists/{slug}" data-artist="{slug}" data-i="{(i - 1) % 3}"><div class="frame">{media}<span class="view">View profile <i>&rarr;</i></span></div>'
+        items = PREVIEW.get(slug) or ["소개가 준비되는 대로 올리겠습니다."]
+        info = '<div class="info"><p class="role">' + KO_ROLE[role] + ' / ' + role + '</p><ul>' + ''.join('<li>' + H.escape(x) + '</li>' for x in items[:5]) + '</ul></div>'
+        out += (f'      <a class="artist{"" if img else " noimg"}" href="#artists/{slug}" data-artist="{slug}" data-i="{(i - 1) % 3}"><div class="frame"><span class="shade"></span>{media}<span class="box"></span><span class="tname">{ko} {en}</span>{info}<span class="tinst">{KO_ROLE[role]} / {role}</span><span class="view">View profile <svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 10L10 2M4 2h6v6"/></svg></span></div>'
                 f'<div class="meta"><div class="name">{ko}<small>{en}</small></div><div class="inst">{KO_ROLE[role]} / {role}</div></div></a>\n')
     out += '      <div class="artist soon" data-i="2"><div class="frame"><div>Coming <br>soon</div></div></div>\n'
     return out
@@ -148,11 +165,11 @@ def history_dialog():
   <button class="totop" type="button" aria-label="Top"><svg viewBox="0 0 24 24"><path d="M6 14l6-6 6 6"/></svg>TOP</button>
   <section class="hhero">
     <img src="images/sy-greenscreen.jpg" alt="">
-    <div class="cap"><h2>전통의 깊이, 새로운 울림.</h2><p class="sub">우리의 음악에 오늘의 감각을 더하다.<br>익숙함과 새로움이 어우러지는 국악의 무대.</p></div>
+    <div class="cap"><h2>전통의 깊이, 새로운 울림.</h2><p class="sub">우리의 음악에 오늘의 감각을 더하다. 익숙함과 새로움이 어우러지는 국악의 무대.<span class="en">Adding today's sensibility to our music. A stage where the familiar and the new come together.</span></p></div>
   </section>
   <div class="wrapper">
     <p class="kicker">03 / History</p>
-    <h2>노바가 함께한 무대</h2>
+    <h2>NOVA가 함께한 무대</h2>
     <section class="archive">
 {rows}    </section>
     <section class="hgal">
@@ -180,8 +197,9 @@ def gallery_dialog():
     items = gallery_items()
     years = sorted({g["y"] for g in items}, reverse=True)
     tabs = '<button type="button" data-y="all" class="current">전체</button>' + ''.join(f'<button type="button" data-y="{y}">{y}</button>' for y in years)
-    cards = ''.join(f'      <a class="hcard" href="#" data-g="{i}"><div class="img"><img src="images/{g["photos"][0]}" alt="" loading="lazy">' + (f'<span class="cnt">{len(g["photos"])}장</span>' if len(g["photos"]) > 1 else '') + f'</div><h4>{H.escape(g["t"])}</h4><p class="d">{g["y"]}.{g["d"]}</p></a>\n' for i, g in enumerate(items))
-    return dialog("galleryDialog", "04 / Gallery", "공간을 채우고, 사람을 잇는 음악", f'''    <div class="fbar"><div class="ptabs" id="gallery-tabs">{tabs}</div><div class="search"><input id="gallery-search" type="search" placeholder="Search" autocomplete="off"><span class="icon"></span></div></div>
+    # 갤러리 카드 : 사진 위에 VIEW ↗ 호버, 아래 날짜 / 장소 머리글과 제목. 장수 배지는 뺐다
+    cards = ''.join(f'      <a class="hcard" href="#" data-g="{i}"><div class="img"><img src="images/{g["photos"][0]}" alt="" loading="lazy"><span class="view">View <svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 10L10 2M4 2h6v6"/></svg></span></div><p class="d">{g["y"]}.{g["d"]}{(" / " + H.escape(g["v"])) if g["v"] else ""}</p><h4>{H.escape(g["t"])}</h4></a>\n' for i, g in enumerate(items))
+    return dialog("galleryDialog", "04 / Gallery", "공간을 채우고, 사람을 잇는 음악", wide=True, inner=f'''    <div class="fbar"><div class="ptabs" id="gallery-tabs">{tabs}</div><div class="search"><input id="gallery-search" type="search" placeholder="Search" autocomplete="off"><span class="icon"></span></div></div>
     <div class="hcards" id="gallery-grid">
 {cards}    </div>
     <p class="empty" id="gallery-empty" hidden>해당하는 공연이 없습니다.</p>
@@ -220,14 +238,15 @@ def gallery_dialog():
 '''
 
 
-def dialog(id_, kicker, title, inner):
+def dialog(id_, kicker, title, inner, wide=False):
+    """wide=True 면 본문 폭이 양옆 여백만 두고 가득(상한 1600). 사진 위주 팝업(Artists, Gallery)에만 쓴다"""
     return f'''<dialog id="{id_}">
   <div class="dlg-bar">
     <a class="dlg-home" href="#" data-close="#{id_}" aria-label="Home"><img src="images/{'nova-mark.png' if id_ == 'aboutDialog' else 'nova-mark-dark.png'}" alt="NOVA"></a>
     <span class="dlg-menu" data-menu>[ Menu ]</span>
   </div>
   <button class="totop" type="button" aria-label="Top"><svg viewBox="0 0 24 24"><path d="M6 14l6-6 6 6"/></svg>TOP</button>
-  <div class="wrapper">
+  <div class="wrapper{' wide' if wide else ''}">
     <p class="kicker">{kicker}</p>
     <h2>{title}</h2>
 {inner}  </div>
@@ -295,15 +314,15 @@ page = f'''<!doctype html>
 
 ''' + dialog("aboutDialog", "01 / About", "", f'''    <div class="about">
       <img class="about-mark" src="images/nova-mark.png" alt="NOVA">
-      <p class="lead">새로운 빛이 탄생하는 순간을 뜻하는 'NOVA' 처럼, 전통음악에 새로운 숨결을 더하고자 모였습니다.<span class="en">Like NOVA, the moment a new light is born, <br class="desk">we came together to breathe new life into Korean traditional music.</span></p>
-      <p>뮤직 프로젝트 노바는 우리의 문화와 정서가 담긴 정악과 민속악 등 전통음악을 중심에 두고, 대중음악과 현대음악의 감각을 조화롭게 접목합니다. 전통음악의 아름다움을 현재와 연결하며, 익숙함과 새로움이 어우러지는 소리로 누구나 공감하고 즐길 수 있는 편안하면서도 특별한 음악을 전합니다.<span class="en">Music Project NOVA keeps traditional music such as jeongak and minsogak, which carry our culture and sentiment, at its center, and weaves in the senses of popular and contemporary music. Connecting the beauty of traditional music to the present, we deliver music that is comfortable yet special, with sounds anyone can relate to and enjoy.</span></p>
-      <div class="actions"><a class="bracket" href="{NOVA_IG}" target="_blank" rel="noreferrer">Instagram</a><a class="bracket" href="{NOVA_YT}" target="_blank" rel="noreferrer">YouTube</a><a class="bracket" href="#" data-open="#artistsDialog">Artists</a></div>
+      <p class="lead">새로운 빛이 탄생하는 순간을 뜻하는 'NOVA' 처럼, 전통음악에 새로운 숨결을 더하고자 모였습니다.<span class="en">Like NOVA, the moment a new light is born, we came together to breathe new life into Korean traditional music.</span></p>
+      <p>뮤직 프로젝트 노바는 우리의 문화와 정서가 담긴 정악과 민속악 등 전통음악을 중심에 두고, 대중음악과 현대음악의 감각을 조화롭게 접목합니다. <br class="desk">전통음악의 아름다움을 현재와 연결하며, 익숙함과 새로움이 어우러지는 소리로 누구나 공감하고 즐길 수 있는 편안하면서도 특별한 음악을 전합니다.<span class="en">Music Project NOVA keeps traditional music such as jeongak and minsogak, which carry our culture and sentiment, at its center, and weaves in the senses of popular and contemporary music. Connecting the beauty of traditional music to the present, we deliver music that is comfortable yet special, with sounds anyone can relate to and enjoy.</span></p>
+      <div class="actions"><a class="bracket" href="{NOVA_IG}" target="_blank" rel="noreferrer">Instagram</a><a class="bracket" href="{NOVA_YT}" target="_blank" rel="noreferrer">YouTube</a><a class="bracket" href="#" data-open="#artistsDialog">Artists</a><a class="bracket" href="#" data-open="#contactDialog">Contact</a></div>
     </div>
-''') + dialog("artistsDialog", "02 / Artists", "새로운 빛으로 만나는 우리 음악", f'''    <p class="lead intro">새로운 빛이 탄생하는 순간을 뜻하는 'NOVA' 처럼, 전통음악에 새로운 숨결을 더하고자 모였습니다.<span class="en">Like NOVA, the moment a new light is born, <br class="desk">we came together to breathe new life into Korean traditional music.</span></p>
+''') + dialog("artistsDialog", "02 / Artists", "새로운 빛으로 만나는 우리 음악", f'''    <p class="lead intro">새로운 빛이 탄생하는 순간을 뜻하는 'NOVA' 처럼, 전통음악에 새로운 숨결을 더하고자 모였습니다.<span class="en">Like NOVA, the moment a new light is born, we came together to breathe new life into Korean traditional music.</span></p>
     <div class="rule"></div>
     <div class="grid" id="artist-grid">
 {tiles()}    </div>
-''') + dialog("artistDialog", "", "", f'''    <div class="head va" id="ar-head"><h2 class="bigname" id="ar-name"></h2><p class="inst" id="ar-inst"></p></div>
+''', wide=True) + dialog("artistDialog", "", "", f'''    <div class="head va" id="ar-head"><h2 class="bigname" id="ar-name"></h2><p class="inst" id="ar-inst"></p></div>
     <div class="cols">
       <div class="photo"><div class="frame" id="ar-photo"></div></div>
       <div class="text">
@@ -313,13 +332,13 @@ page = f'''<!doctype html>
       </div>
     </div>
     <div class="artist-nav"><a href="#" id="ar-prev"><span class="dir">Prev</span></a><a href="#" class="more list" data-open="#artistsDialog">목록</a><a href="#" id="ar-next"><span class="dir">Next</span></a></div>
-''') + history_dialog() + gallery_dialog() + dialog("contactDialog", "06 / Contact", "문의", '''    <p class="intro">공연 섭외, 협업, 촬영 문의는 아래 양식이나 인스타그램 메시지로 남겨 주세요.</p>
+''') + history_dialog() + gallery_dialog() + dialog("contactDialog", "06 / Contact", "문의", '''    <p class="intro">공연 섭외, 협업, 촬영에 관한 문의는 아래 양식 또는 인스타그램 메시지로 남겨 주시면 확인 후 답변드리겠습니다.<span class="en">For performance bookings, collaborations and filming, please use the form below or message us on Instagram. <br class="desk">We will reply after review.</span></p>
   <div class="info"><h2>MUSIC PROJECT NOVA</h2><div class="v"><span class="cl"><svg class="ci" viewBox="0 0 24 24"><circle cx="12" cy="8" r="3.6"/><path d="M4.5 20a7.5 7.5 0 0 1 15 0"/></svg>대표 이소영</span><span class="cl"><svg class="ci" viewBox="0 0 24 24"><path d="M12 21s-6-5.3-6-10a6 6 0 0 1 12 0c0 4.7-6 10-6 10z"/><circle cx="12" cy="11" r="2.2"/></svg><span>부산, 대한민국<small>Busan, Republic of Korea</small></span></span></div><div class="r"><div class="stack"><a class="cl" href="mailto:''' + NOVA_EMAIL + '''"><svg class="ci" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="1.5"/><path d="M3 7l9 6 9-6"/></svg>''' + NOVA_EMAIL + '''</a><a class="cl" href="tel:''' + NOVA_TEL.replace("-", "") + '''"><svg class="ci" viewBox="0 0 24 24"><path d="M6.5 3h3l1.5 4-2 1.5a11 11 0 0 0 6.5 6.5L17 13l4 1.5v3a2 2 0 0 1-2 2A16 16 0 0 1 4.5 5a2 2 0 0 1 2-2z"/></svg>''' + NOVA_TEL + '''</a></div></div></div>
   <div class="info"><h2>SNS</h2><div class="v"><a class="cl" href="''' + NOVA_IG + '''" target="_blank" rel="noreferrer"><svg class="ci" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r=".9" fill="currentColor" stroke="none"/></svg>Instagram @proj.nova_</a><a class="cl" href="''' + NOVA_YT + '''" target="_blank" rel="noreferrer"><svg class="ci" viewBox="0 0 24 24"><rect x="2.5" y="6" width="19" height="12" rx="3.5"/><path d="M10 9.5v5l4.5-2.5z" fill="currentColor" stroke="none"/></svg>YouTube Music Project NOVA</a></div><div class="r"></div></div>
 
   <section class="inq" id="inquiry">
     <h2>Inquiry</h2>
-    <p class="lead">문의하신 내용 확인 후 담당자가 개별 연락 드리도록 하겠습니다. 일시와 장소가 미정인 경우 "미정" 으로 기재해 주세요.</p>
+    <p class="lead">문의하신 내용 확인 후 담당자가 개별 연락 드리도록 하겠습니다. 일시와 장소가 미정인 경우 "미정" 으로 기재해 주세요.<span class="en">We will review your inquiry and contact you individually. If the date or venue is not yet decided, please write "TBD".</span></p>
     <form id="bf" novalidate>
       <div class="f"><span>유형<b>*</b></span><select name="type" class="empty"><option value="">선택</option><option>공연 섭외</option><option>협업 제안</option><option>촬영, 인터뷰</option><option>기타 문의</option></select><p class="msg">유형을 선택해 주세요.</p></div>
       <div class="two">
@@ -384,7 +403,7 @@ page = f'''<!doctype html>
     <table class="list" id="notice-table">
       <thead><tr><th>No.</th><th>Title</th><th>Writer</th><th>Date</th></tr></thead>
       <tbody>
-''' + ''.join(f'        <tr data-topic="{c}" data-id="{i}"{" class=\"pinned\"" if c == "pin" else ""}><td class="no">{"<svg class=\"pinicon\" viewBox=\"0 0 24 24\" aria-label=\"고정\"><path d=\"M14 3l7 7-3 1-3.5 3.5L15 20l-4-4-6 6 6-6-4-4 5.5.5L16 9l1-3z\"/></svg>" if c == "pin" else f"{nums[i]:02d}"}</td><td class="title"><a href="#" data-notice="{i}">{H.escape(t)}</a></td><td class="writer">NOVA</td><td class="date">{d}</td></tr>\n' for i, (c, t, d, body) in enumerate(notices)) + '''      </tbody>
+''' + ''.join(f'        <tr data-topic="{c}" data-id="{i}"{" class=\"pinned\"" if c == "pin" else ""}><td class="no">{"<svg class=\"pinicon\" viewBox=\"0 0 24 24\" aria-label=\"고정\"><path d=\"M14 3l7 7-3 1-3.5 3.5L15 20l-4-4-6 6 6-6-4-4 5.5.5L16 9l1-3z\"/></svg>" if c == "pin" else f"{nums[i]:02d}"}</td><td class="title"><a href="#" data-notice="{i}">{H.escape(t)}</a></td><td class="writer">NOVA</td><td class="date">{d}</td></tr>\n'for i, (c, t, d, body, en) in enumerate(notices)) + '''      </tbody>
     </table>
     <p class="empty" id="notice-empty" hidden>No notices found.<span class="ko">해당하는 공지가 없습니다.</span></p>
     <div class="more-wrap" id="notice-more" hidden><button class="more" type="button">더 보기</button></div>
@@ -403,7 +422,7 @@ page = f'''<!doctype html>
 <script>window.NOVA_EMAIL = ''' + json.dumps(NOVA_EMAIL) + ''';</script>
 <script>window.GALLERY = ''' + json.dumps(gallery_items(), ensure_ascii=False) + ''';</script>
 <script>window.ARTISTS = ''' + json.dumps([{"slug": s, "ko": ko, "en": en, "role": role, "roleKo": KO_ROLE[role], "img": img, "pos": pos, "bio": bio, "links": LINKS.get(s, []), "career": CAREER.get(s, [])} for ko, en, role, s, img, pos, bio in members], ensure_ascii=False) + ''';</script>
-<script>window.NOTICES = ''' + json.dumps([{"topic": c, "title": t, "date": d, "body": body} for c, t, d, body in notices], ensure_ascii=False) + ''';</script>
+<script>window.NOTICES = ''' + json.dumps([{"topic": c, "title": t, "date": d, "body": body, "en": en} for c, t, d, body, en in notices], ensure_ascii=False) + ''';</script>
 <script src="main.js?v=''' + str(STAMP) + '''"></script>
 </body>
 </html>
