@@ -16,7 +16,10 @@ body { font-family: var(--font); font-weight: 200; font-size: 16px; line-height:
 body.noscroll { overflow: hidden; }
 a { color: inherit; text-decoration: none; }
 img { -webkit-user-drag: none; user-select: none; display: block; }
-p .ko { display: block; margin-top: 8px; }
+p .ko, p .en { display: block; margin-top: 8px; }
+/* 데스크톱에서만 정해진 자리에서 줄바꿈 (모바일은 자연스럽게 흐름) */
+br.desk { display: inline; }
+p .en { font-size: .92em; font-weight: 300; opacity: .85; }
 
 /* ---------- 워드마크 : 브로슈어 원본 마크 이미지 (가로 3.3 : 1) ---------- */
 .wordmark { display: inline-block; height: 1em; width: auto; vertical-align: middle; }
@@ -183,7 +186,9 @@ dialog .actions { display: flex; flex-wrap: wrap; gap: 12px 28px; margin-top: 28
 .cnav .cpage { font-size: 11px; letter-spacing: .15em; opacity: .78; }
 .bio { max-width: 580px; }
 .bio p { font-size: 18px; letter-spacing: .02em; line-height: 1.4; font-weight: 200; margin: 0 0 24px; }
-.bio p.ko { font-size: 15px; font-weight: 300; line-height: 1.6; margin: -10px 0 32px; }
+/* 한글이 본문, 영어는 그 아래 작게 */
+.bio p.ko { font-size: 17px; font-weight: 300; line-height: 1.6; }
+.bio p.en { font-size: 15px; font-weight: 300; line-height: 1.5; margin: -10px 0 32px; opacity: .85; }
 .icons { display: flex; gap: 22px; margin-top: 60px; }
 .icons a, .icons span { width: 26px; height: 26px; display: block; transition: transform .4s var(--ease2), color .3s; }
 .icons span { opacity: .35; }
@@ -209,8 +214,8 @@ dialog .actions { display: flex; flex-wrap: wrap; gap: 12px 28px; margin-top: 28
 .hhero .cap { position: absolute; left: 0; right: 0; bottom: 56px; z-index: 1; text-align: center; color: #fff; padding: 0 var(--gutter); }
 #showsDialog .hhero h2 { font-size: clamp(22px, 2.6vw, 34px); font-weight: 700; margin: 0; letter-spacing: .02em; line-height: 1.3; }
 .hhero .sub { margin: 18px 0 0; font-size: clamp(14px, 1.25vw, 17px); font-weight: 300; line-height: 1.8; letter-spacing: .02em; opacity: .92; }
-#showsDialog .wrapper { max-width: 1128px; min-height: 0; padding: 48px var(--gutter) 100px; }
-#showsDialog .wrapper > h2 { margin-bottom: 31px; }
+/* History 는 위에 사진이 있어서 위 여백만 다르다. 폭은 공통(dialog .wrapper) */
+#showsDialog .wrapper { min-height: 0; padding-top: 48px; padding-bottom: 100px; }
 .hcards { display: grid; grid-template-columns: 1fr 1fr; }
 .hcard { display: block; padding: 0 5px 50px; text-align: center; }
 .hcard .img { position: relative; overflow: hidden; }
@@ -235,8 +240,8 @@ dialog .actions { display: flex; flex-wrap: wrap; gap: 12px 28px; margin-top: 28
 .archive .row .t { font-size: 16px; font-weight: 400; line-height: 1.4; }
 .archive .row .m { font-size: 12px; font-weight: 300; opacity: .78; letter-spacing: .02em; }
 .archive .row .m:empty { display: none; }
-#galleryDialog .wrapper { max-width: 1128px; }
-#galleryDialog .wrapper > h2 { margin-bottom: 31px; }
+/* 제목 아래 바로 표나 필터가 오는 팝업은 제목 여백을 조금 더 */
+#showsDialog .wrapper > h2, #galleryDialog .wrapper > h2 { margin-bottom: 31px; }
 /* Gallery 필터 줄 : 프로필 탭 + 오른쪽 검색 420px */
 .fbar { display: flex; justify-content: space-between; align-items: flex-end; gap: 24px; margin: 0 0 44px; padding: 0 5px; }
 .fbar .ptabs { margin: 0; padding: 0 0 4px; }
@@ -246,7 +251,7 @@ dialog .actions { display: flex; flex-wrap: wrap; gap: 12px 28px; margin-top: 28
 .post { background: #fff; color: var(--ink); opacity: 0; transition: opacity .2s ease; }
 .post::backdrop { background: #fff; }
 .post.show { opacity: 1; }
-.pwrap { max-width: 1080px; margin: 0 auto; padding: 110px var(--gutter) 80px; text-align: center; }
+.pwrap { max-width: 1100px; margin: 0 auto; padding: 110px var(--gutter) 80px; text-align: center; }   /* 폭은 dialog .wrapper 와 같게 */
 .pk { font-size: 12px; letter-spacing: .22em; text-transform: uppercase; color: var(--coral-text); font-weight: 400; margin: 0 0 14px; }
 .pwrap h2 { font-size: 30px; font-weight: 700; letter-spacing: 0; line-height: 1.3; margin: 0 0 30px; }
 .photos { display: flex; flex-direction: column; gap: 40px; }
@@ -361,7 +366,6 @@ dialog.detail[open] { display: block; }
 .ptab th { background: #f4f1ee; font-weight: 400; text-align: left; padding: 10px 12px; border: 1px solid rgba(24, 24, 24, .15); letter-spacing: .02em; }
 .ptab td { padding: 10px 12px; border: 1px solid rgba(24, 24, 24, .15); vertical-align: top; }
 /* ---------- Contact (JYP 구조) ---------- */
-#contactDialog .wrapper { max-width: 1100px; }
 #contactDialog .intro { font-size: 15px; font-weight: 300; line-height: 1.8; margin: 0 0 50px; }
 /* 위 : JYP 처럼 왼쪽 굵은 이름, 오른쪽 내용 */
 #contactDialog .info { display: grid; grid-template-columns: 220px 1fr auto; gap: 16px 40px; align-items: start; padding: 26px 0; border-top: 1px solid rgba(24, 24, 24, .15); }
@@ -437,6 +441,7 @@ dialog.detail[open] { display: block; }
   .ptab { font-size: 12px; } .ptab th, .ptab td { padding: 8px 8px; }
   .dlg-bar img { content: url("images/nova-mark.png"); }
   #showsDialog .dlg-bar.light { color: var(--cream); }
+  br.desk { display: none; }
   dialog .wrapper > h2 { font-size: 23px; }
   #galleryDialog .wrapper > h2, #showsDialog .wrapper > h2 { white-space: nowrap; }
   .dlg-home img { height: 18px; }

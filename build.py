@@ -295,11 +295,11 @@ page = f'''<!doctype html>
 
 ''' + dialog("aboutDialog", "01 / About", "", f'''    <div class="about">
       <img class="about-mark" src="images/nova-mark.png" alt="NOVA">
-      <p class="lead">Like NOVA, the moment a new light is born, we came together to breathe new life into Korean traditional music.<span class="ko">새로운 빛이 탄생하는 순간을 뜻하는 'NOVA' 처럼, 전통음악에 새로운 숨결을 더하고자 모였습니다.</span></p>
-      <p>Music Project NOVA keeps traditional music such as jeongak and minsogak, which carry our culture and sentiment, at its center, and weaves in the senses of popular and contemporary music. Connecting the beauty of traditional music to the present, we deliver music that is comfortable yet special, with sounds anyone can relate to and enjoy.<span class="ko">뮤직 프로젝트 노바는 우리의 문화와 정서가 담긴 정악과 민속악 등 전통음악을 중심에 두고, 대중음악과 현대음악의 감각을 조화롭게 접목합니다. 전통음악의 아름다움을 현재와 연결하며, 익숙함과 새로움이 어우러지는 소리로 누구나 공감하고 즐길 수 있는 편안하면서도 특별한 음악을 전합니다.</span></p>
+      <p class="lead">새로운 빛이 탄생하는 순간을 뜻하는 'NOVA' 처럼, 전통음악에 새로운 숨결을 더하고자 모였습니다.<span class="en">Like NOVA, the moment a new light is born, <br class="desk">we came together to breathe new life into Korean traditional music.</span></p>
+      <p>뮤직 프로젝트 노바는 우리의 문화와 정서가 담긴 정악과 민속악 등 전통음악을 중심에 두고, 대중음악과 현대음악의 감각을 조화롭게 접목합니다. 전통음악의 아름다움을 현재와 연결하며, 익숙함과 새로움이 어우러지는 소리로 누구나 공감하고 즐길 수 있는 편안하면서도 특별한 음악을 전합니다.<span class="en">Music Project NOVA keeps traditional music such as jeongak and minsogak, which carry our culture and sentiment, at its center, and weaves in the senses of popular and contemporary music. Connecting the beauty of traditional music to the present, we deliver music that is comfortable yet special, with sounds anyone can relate to and enjoy.</span></p>
       <div class="actions"><a class="bracket" href="{NOVA_IG}" target="_blank" rel="noreferrer">Instagram</a><a class="bracket" href="{NOVA_YT}" target="_blank" rel="noreferrer">YouTube</a><a class="bracket" href="#" data-open="#artistsDialog">Artists</a></div>
     </div>
-''') + dialog("artistsDialog", "02 / Artists", "새로운 빛으로 만나는 우리 음악", f'''    <p class="lead intro">Like NOVA, the moment a new light is born, we came together to breathe new life into Korean traditional music.<span class="ko">새로운 빛이 탄생하는 순간을 뜻하는 'NOVA' 처럼, 전통음악에 새로운 숨결을 더하고자 모였습니다.</span></p>
+''') + dialog("artistsDialog", "02 / Artists", "새로운 빛으로 만나는 우리 음악", f'''    <p class="lead intro">새로운 빛이 탄생하는 순간을 뜻하는 'NOVA' 처럼, 전통음악에 새로운 숨결을 더하고자 모였습니다.<span class="en">Like NOVA, the moment a new light is born, <br class="desk">we came together to breathe new life into Korean traditional music.</span></p>
     <div class="rule"></div>
     <div class="grid" id="artist-grid">
 {tiles()}    </div>

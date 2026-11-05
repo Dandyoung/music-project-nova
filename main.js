@@ -94,7 +94,7 @@ function openArtist(slug) {
     $("#ar-inst").textContent = a.role;
     $("#ar-photo").innerHTML = media(a);
     const bio = a.bio.length ? a.bio : [["Profile coming soon.", "소개가 준비되는 대로 올리겠습니다."]];
-    $("#ar-bio").innerHTML = bio.map(([en, ko]) => `<p class="en">${en}</p><p class="ko">${ko}</p>`).join("");
+    $("#ar-bio").innerHTML = bio.map(([en, ko]) => `<p class="ko">${ko}</p><p class="en">${en}</p>`).join("");   // 한글 먼저, 영어는 아래 작게
     const career = a.career || [];
     $("#ar-tabs").hidden = !career.length;
     renderCareer(career);
