@@ -342,23 +342,13 @@ f.addEventListener("submit", (e) => {
 // ---- 방문자 수 (Notice 머리줄) : 외부 카운터 Abacus. 누적은 열 때마다 1, 접속 중은 20초마다 신호를 보내 최근 1분(3칸) 중 최댓값 ----
 (function () {
   const nowEl = $("#vis-now"), totEl = $("#vis-total"); if (!nowEl) return;
-  const NS = "music-project-nova", API = "https://abacus.jasoncameron.dev";
+  // 우리 Cloudflare Worker(nova-counter). 누적은 KV, 접속 중은 Worker 메모리의 20초 칸. 처음 열 때 /hit, 그 뒤 20초마다 /ping
+  const API = "https://nova-counter.eoduq6464.workers.dev";
   const fmt = (n) => Number(n).toLocaleString("ko-KR");
-  const j = (u) => fetch(u).then((r) => r.json());
-  j(`${API}/hit/${NS}/total`).then((r) => { totEl.textContent = fmt(r.value); }).catch(() => {});
-  let lastSlot = -1; const mine = new Set();
-  const ping = async () => {
-    const slot = Math.floor(Date.now() / 20000);   // 20초 칸
-    if (slot === lastSlot) return; lastSlot = slot;
-    try {
-      const cur = await j(`${API}/hit/${NS}/s${slot}`); mine.add(slot);
-      // 앞 칸은 이 브라우저가 직접 신호를 보낸 칸만 읽는다 (없는 칸을 읽으면 브라우저 콘솔에 404 가 찍히므로)
-      const g = (k) => (mine.has(k) ? j(`${API}/get/${NS}/s${k}`).catch(() => ({ value: 0 })) : Promise.resolve({ value: 0 }));
-      const [a, b] = await Promise.all([g(slot - 1), g(slot - 2)]);
-      // 각 20초 칸에는 열려 있는 브라우저마다 1 씩 들어오므로, 최근 세 칸 중 가장 큰 값이 접속 중인 수
-      nowEl.textContent = fmt(Math.max(1, cur.value, a.value || 0, b.value || 0));
-    } catch (_) {}
-  };
+  const show = (r) => { if (!r) return; totEl.textContent = fmt(r.total); nowEl.textContent = fmt(r.now); };
+  const call = (p) => fetch(API + p).then((r) => (r.ok ? r.json() : null)).catch(() => null);
+  let first = true;
+  const ping = async () => { show(await call(first ? "/hit" : "/ping")); first = false; };
   ping(); setInterval(ping, 20000);
   document.addEventListener("visibilitychange", () => { if (!document.hidden) ping(); });
 })();
