@@ -290,9 +290,10 @@ document.querySelectorAll("dialog .totop").forEach((btn) => {
   btn.addEventListener("click", () => dlg.scrollTo({ top: 0, behavior: "smooth" }));
 });
 
-// ---- Contact : JYP 식 문의 양식. 유형별 칸 이름, 필수 표시, 동의 둘 다 체크해야 등록, 보내기는 mailto ----
+// ---- Contact : JYP 식 문의 양식. 유형별 칸 이름, 필수 표시, 동의 둘 다 체크해야 등록, 보내기는 Worker 가 메일로, 안 되면 mailto ----
 (function () {
 const EMAIL = window.NOVA_EMAIL;
+const CONTACT_API = "https://nova-counter.eoduq6464.workers.dev/contact";
 const f = document.getElementById("bf"); if (!f) return; const submit = document.getElementById("submit");
 const REQ = ["type", "event", "name", "phone", "email", "desc"];
 // 유형에 따라 칸 이름, 안내, 동의 표가 바뀐다
@@ -311,7 +312,7 @@ const setKind = (k) => {
 const lock = (on) => { f.classList.toggle("locked", on); [...f.elements].forEach((el) => { if (el.name && el.name !== "type") el.disabled = on; }); if (on) submit.disabled = true; else gate(); };
 f.elements.type.addEventListener("change", (e) => { e.target.classList.toggle("empty", !e.target.value); setKind(e.target.value); lock(!e.target.value); });
 setKind(""); lock(true);
-contactDirty = () => [...f.elements].some((el) => el.name && (el.type === "checkbox" ? el.checked : el.value.trim()));
+contactDirty = () => [...f.elements].some((el) => el.name && el.name !== "hp" && (el.type === "checkbox" ? el.checked : el.value.trim()));
 const ld = $("#leaveDialog"); let pending = null;
 askLeave = (go) => { pending = go; ld.showModal(); requestAnimationFrame(() => ld.classList.add("show")); if (document.activeElement && ld.contains(document.activeElement)) document.activeElement.blur(); };
 const hideLeave = () => { ld.classList.remove("show"); setTimeout(() => { if (!ld.classList.contains("show")) ld.close(); }, 200); };
@@ -333,8 +334,19 @@ f.addEventListener("submit", (e) => {
   const v = (k) => (f.elements[k].value || "").trim() || "미정";
   const L = KIND[v("type")] || KIND["공연 섭외"];
   const body = ["[" + v("type") + "] " + v("event"), "", "유형: " + v("type"), L.event[0] + ": " + v("event"), "소속: " + v("org"), "이름: " + v("name"), "연락처: " + v("phone"), "이메일: " + v("email"), L.date[0] + ": " + v("date"), L.place[0] + ": " + v("place"), "", L.desc[0] + ":", v("desc"), "", "개인정보 및 행사 정보 수집, 이용에 동의함"].join("\n");
-  location.href = "mailto:" + EMAIL + "?subject=" + encodeURIComponent("[" + v("type") + "] " + v("event")) + "&body=" + encodeURIComponent(body);
-  document.getElementById("done").style.display = "block";
+  // Worker(/contact)가 NOVA 메일로 보낸다. 응답이 {ok:true} 가 아니거나 10초 안에 답이 없으면 예전처럼 메일 앱을 연다
+  const done = document.getElementById("done");
+  const say = (t) => { done.textContent = t; done.style.display = "block"; };
+  const viaMailApp = () => { location.href = "mailto:" + EMAIL + "?subject=" + encodeURIComponent("[Music Project NOVA] " + v("type") + " / " + v("event")) + "&body=" + encodeURIComponent(body); say("메일 앱이 열렸습니다. 보내기를 누르면 접수됩니다."); };
+  const raw = (k) => (f.elements[k].value || "").trim();
+  const data = { type: raw("type"), event: raw("event"), org: raw("org"), name: raw("name"), phone: raw("phone"), email: raw("email"), date: raw("date"), place: raw("place"), desc: raw("desc"), agree1: f.elements.agree1.checked, agree2: f.elements.agree2.checked, hp: f.elements.hp.value };
+  const stop = new AbortController(), timer = setTimeout(() => stop.abort(), 10000);
+  submit.disabled = true; submit.textContent = "보내는 중"; done.style.display = "none";
+  fetch(CONTACT_API, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(data), signal: stop.signal })
+    .then((r) => r.json())
+    .then((j) => { if (!j || j.ok !== true) throw new Error("not ok"); f.reset(); f.elements.type.classList.add("empty"); setKind(""); lock(true); say("문의가 접수되었습니다. 확인 후 연락드리겠습니다."); })
+    .catch(() => { gate(); viaMailApp(); })
+    .finally(() => { clearTimeout(timer); submit.textContent = "등록"; });
 });
 
 })();

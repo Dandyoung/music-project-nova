@@ -23,7 +23,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@200;300;400;600;700&family=Gothic+A1:wght@200;300;400;500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-<link rel="stylesheet" href="style.css?v=1794211239">
+<link rel="stylesheet" href="style.css?v=1794211251">
 </head>
 <body>
 <dialog id="menuDialog" class="menu-container">
@@ -253,6 +253,7 @@
       <div class="f" id="f-place"><span><em>행사 장소</em></span><input name="place" type="text" placeholder="예: 부산문화회관 대극장. 미정 시 미정으로 기재"></div>
       <div class="f" id="f-desc"><span><em>문의 내용</em><b>*</b></span><textarea name="desc" placeholder="행사 성격, 희망 구성(인원과 시간), 관객 규모, 음향 장비 유무, 예산 범위 등"></textarea><p class="msg">문의 내용을 입력해 주세요.</p></div>
 
+      <input class="hp" name="hp" type="text" tabindex="-1" autocomplete="off" aria-hidden="true">
       <div class="agree" id="ag1">
         <span>개인정보 수집, 이용 동의<b>*</b></span>
         <table><thead><tr><th>수집, 이용 항목</th><th>수집, 이용 목적</th><th>보유 기간</th></tr></thead><tbody><tr><td>이름, 연락처, 이메일</td><td>문의 답변, 섭외 협의</td><td>협의 종료 후 12개월</td></tr></tbody></table>
@@ -281,7 +282,7 @@
     <p class="kicker">Privacy Policy</p>
     <h2>개인정보 처리방침</h2>
     <div class="policy">
-      <p class="pv">시행일 2026년 11월 3일</p>
+      <p class="pv">시행일 2026년 11월 9일</p>
       <p>뮤직 프로젝트 노바(이하 "노바")는 ｢개인정보 보호법｣ 을 지키며 이 홈페이지(이하 "사이트")를 운영합니다. 이 방침은 사이트 방문자의 개인정보가 어떻게 다뤄지는지를 알려 드리기 위한 것입니다.</p>
       <ol>
         <li>수집하는 개인정보, 처리 목적, 보유 기간<p>사이트는 회원 가입, 댓글 기능을 두지 않으며 방문자의 개인정보를 자동으로 수집하거나 저장하지 않습니다. 문의를 보내 주시는 경우에만 아래 정보를 받습니다.</p>
@@ -290,7 +291,10 @@
             <tr><td>섭외 문의 양식 (사이트)</td><td>공연 섭외 검토와 회신</td><td>행사명, 주최, 담당자 이름, 연락처, 이메일, 행사 일시와 장소, 희망 구성, 요청 사항</td><td>협의 종료 후 1년</td></tr>
             <tr><td>공연 계약 체결</td><td>계약 이행, 정산, 세무 신고</td><td>계약서에 적힌 담당자 정보, 정산 정보</td><td>관련 법령이 정한 기간 (국세기본법 5년)</td></tr>
           </tbody></table></li>
-        <li>제3자 제공과 위탁<p>받은 정보를 다른 사람이나 단체에 제공하거나 처리를 맡기지 않습니다. 법령에 따라 제출 의무가 생기는 경우는 예외입니다.</p></li>
+        <li>제3자 제공과 위탁<p>받은 정보를 다른 사람이나 단체에 제공하지 않습니다. 법령에 따라 제출 의무가 생기는 경우는 예외입니다. 사이트 문의 양식에 적은 내용은 노바의 메일로 전달하기 위해 아래 사업자의 서버를 거칩니다. 노바는 이 과정에서 내용을 따로 저장하지 않습니다.</p>
+          <table class="ptab"><thead><tr><th>맡는 곳</th><th>맡기는 일</th><th>처리 위치</th><th>보유 기간</th></tr></thead><tbody>
+            <tr><td>Cloudflare, Inc.</td><td>문의 양식 내용의 메일 발송</td><td>미국 등 사업자의 해외 서버</td><td>발송 즉시 전달, 발송 기록은 사업자의 기본 보관 기간</td></tr>
+          </tbody></table></li>
         <li>쿠키와 자동 수집<p>사이트는 쿠키, 방문 분석 도구, 광고 추적 도구를 쓰지 않습니다. 사이트를 띄우는 서버가 남기는 기록은 아래와 같습니다.</p>
           <table class="ptab"><thead><tr><th>항목</th><th>목적</th><th>보유 기간</th></tr></thead><tbody>
             <tr><td>IP 주소, 접속 시각, 요청한 페이지</td><td>서버 보안, 장애 확인</td><td>서버 사업자의 기본 보관 기간 (최대 3개월), 따로 분석하지 않음</td></tr>
@@ -347,6 +351,6 @@
 <script>window.GALLERY = [{"y": 2026, "d": "09.09", "t": "AOCMP 2026 및 제72회 한국의학물리학회 추계학술대회", "v": "부산항전시컨벤션센터", "photos": ["live-aocmp.jpg", "stage-blue.jpg"]}, {"y": 2026, "d": "08.07", "t": "꿈꾸는 예술무대 <PAN : ON>", "v": "경주 교촌마을", "photos": ["nova-panon-gyeongju.jpg", "ensemble-hanbok.jpg", "busking-pink.jpg"]}, {"y": 2026, "d": "05.18", "t": "아시아물리올림피아드 개막식", "v": "부경대학교 대학극장", "photos": ["live-apho.jpg"]}, {"y": 2025, "d": "11.22", "t": "차도 마시Go, 국악도 듣Go, 춤도 추Go", "v": "김해한옥체험관", "photos": ["live-gimhae.jpg", "stage-pink.jpg"]}, {"y": 2025, "d": "11.19", "t": "NMJ 2025 행사 공연", "v": "영주 선비세상", "photos": ["live-nmj.jpg"]}, {"y": 2025, "d": "08.30", "t": "대구 국가유산야행", "v": "경상감영공원", "photos": ["nova-hero-daegu.jpg", "stage-spotlight.jpg", "ensemble-suit.jpg"]}];</script>
 <script>window.ARTISTS = [{"slug": "soyeong", "ko": "이소영", "en": "Soyeong Lee", "role": "Daegeum", "roleKo": "대금", "img": "images/portrait-grey-2.jpg", "pos": "56% 23%", "bio": [["Soyeong Lee is a daegeum player. On the breath of jeongak and sanjo she layers the sounds of today, exploring how the daegeum can change a stage and a room.", "이소영은 대금 연주자다. 정악과 산조의 호흡 위에 동시대의 소리를 얹어, 대금이 무대와 공간을 어떻게 바꾸는지 탐구한다."], ["Moving between traditional and new stages, she keeps widening where the sound of the daegeum can reach.", "전통 무대와 창작 무대를 오가며 대금의 소리가 닿는 자리를 넓혀 가고 있다."]], "links": [["YouTube", "https://www.youtube.com/@%EC%9D%B4%EC%86%8C%EC%98%81-k3q"]], "career": [["edu", "2021.02", "부산대학교 대학원 한국음악학과 석사과정 수료"], ["edu", "2019.03", "부산대학교 대학원 한국음악학과 석사과정 입학"], ["edu", "2019.02", "부산대학교 한국음악학과 졸업"], ["edu", "2015.03", "부산대학교 한국음악학과 입학"], ["career", "2026.03", "제 1회 대금독주회 [시간의 틈새(闖塞)]"], ["career", "2025.12", "[예시] 송년 국악 음악회 협연"], ["career", "2025.09", "[예시] 부산 국제 음악제 출연"], ["career", "2025.05", "뮤직 프로젝트 노바 창단 멤버"], ["career", "2024.11", "[예시] 국립부산국악원 기획공연 협연"], ["career", "2023.06", "[예시] 부산시립국악관현악단 객원 연주"], ["award", "2024.08", "[예시] 전국 국악 경연대회 대금 부문 금상"], ["award", "2023.10", "[예시] 부산 국악 대전 일반부 대상"], ["award", "2021.06", "[예시] 영남 국악 경연대회 관악 부문 은상"], ["award", "2019.11", "[예시] 전국 대학 국악 경연대회 장려상"]]}, {"slug": "chaerin", "ko": "김채린", "en": "Chaerin Kim", "role": "Geomungo", "roleKo": "거문고", "img": null, "pos": null, "bio": [], "links": [], "career": []}, {"slug": "yukyung", "ko": "황유경", "en": "Yukyung Hwang", "role": "Haegeum", "roleKo": "해금", "img": null, "pos": null, "bio": [], "links": [], "career": []}, {"slug": "jeonghyun", "ko": "전정현", "en": "Jeonghyun Jeon", "role": "Percussion", "roleKo": "타악", "img": null, "pos": null, "bio": [], "links": [], "career": []}, {"slug": "hanbyeol", "ko": "손한별", "en": "Hanbyeol Son", "role": "Daegeum", "roleKo": "대금", "img": null, "pos": null, "bio": [], "links": [], "career": []}];</script>
 <script>window.NOTICES = [{"topic": "pin", "title": "공연 섭외와 협업 문의 안내", "date": "2026.11.04", "body": ["공연 섭외, 협업, 촬영 문의는 CONTACT 메뉴의 문의 양식과 인스타그램 메시지로 받고 있습니다.", "유형을 고르고 행사명, 일시, 장소, 희망 구성(인원과 시간)을 적어 주시면 확인 후 답변드리겠습니다."], "en": ["We receive inquiries for performance bookings, collaborations and filming through the form in the CONTACT menu and by Instagram message.", "Select the type of inquiry and include the event name, date, venue and the lineup you have in mind (number of players and duration). We will review it and get back to you."]}, {"topic": "nova", "title": "2026 연말 공연 일정 안내", "date": "2026.11.05", "body": ["2026년 연말 노바의 공연 일정을 안내드립니다.", "12월 공연은 확정되는 대로 이곳 NOTICE 와 인스타그램에 올리겠습니다.", "지난 무대는 HISTORY 와 GALLERY 에서 보실 수 있습니다."], "en": ["Here is NOVA's performance schedule for the end of 2026.", "December dates will be posted here in NOTICE and on Instagram as soon as they are confirmed.", "Past stages can be found in HISTORY and GALLERY."]}, {"topic": "nova", "title": "뮤직 프로젝트 노바 홈페이지가 오픈되었습니다", "date": "2026.11.03", "body": ["뮤직 프로젝트 노바의 공식 홈페이지가 오픈되었습니다.", "ABOUT 에서 노바를 소개하고, ARTISTS 에서 다섯 연주자의 소개와 약력을, HISTORY 에서 그동안 함께한 무대를, GALLERY 에서 공연 사진을 보실 수 있습니다.", "공연 섭외, 협업, 촬영 문의는 CONTACT 메뉴의 문의 양식과 인스타그램 메시지로 받고 있습니다.", "앞으로 공연 일정과 소식을 이곳 NOTICE 와 인스타그램에서 가장 먼저 알려 드리겠습니다. 많은 관심 부탁드립니다."], "en": ["The official website of Music Project NOVA is now open.", "ABOUT introduces NOVA, ARTISTS presents our five players and their profiles, HISTORY lists the stages we have shared, and GALLERY holds photos from our performances.", "We receive inquiries for performance bookings, collaborations and filming through the form in the CONTACT menu and by Instagram message.", "Upcoming performances and news will be announced first here in NOTICE and on Instagram. Thank you for your interest."]}];</script>
-<script src="main.js?v=1794211239"></script>
+<script src="main.js?v=1794211251"></script>
 </body>
 </html>

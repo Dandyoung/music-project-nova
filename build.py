@@ -356,6 +356,7 @@ page = f'''<!doctype html>
       <div class="f" id="f-place"><span><em>행사 장소</em></span><input name="place" type="text" placeholder="예: 부산문화회관 대극장. 미정 시 미정으로 기재"></div>
       <div class="f" id="f-desc"><span><em>문의 내용</em><b>*</b></span><textarea name="desc" placeholder="행사 성격, 희망 구성(인원과 시간), 관객 규모, 음향 장비 유무, 예산 범위 등"></textarea><p class="msg">문의 내용을 입력해 주세요.</p></div>
 
+      <input class="hp" name="hp" type="text" tabindex="-1" autocomplete="off" aria-hidden="true">
       <div class="agree" id="ag1">
         <span>개인정보 수집, 이용 동의<b>*</b></span>
         <table><thead><tr><th>수집, 이용 항목</th><th>수집, 이용 목적</th><th>보유 기간</th></tr></thead><tbody><tr><td>이름, 연락처, 이메일</td><td>문의 답변, 섭외 협의</td><td>협의 종료 후 12개월</td></tr></tbody></table>
@@ -373,7 +374,7 @@ page = f'''<!doctype html>
     </form>
   </section>
 ''') + dialog("privacyDialog", "Privacy Policy", "개인정보 처리방침", '''    <div class="policy">
-      <p class="pv">시행일 2026년 11월 3일</p>
+      <p class="pv">시행일 2026년 11월 9일</p>
       <p>뮤직 프로젝트 노바(이하 "노바")는 ｢개인정보 보호법｣ 을 지키며 이 홈페이지(이하 "사이트")를 운영합니다. 이 방침은 사이트 방문자의 개인정보가 어떻게 다뤄지는지를 알려 드리기 위한 것입니다.</p>
       <ol>
         <li>수집하는 개인정보, 처리 목적, 보유 기간<p>사이트는 회원 가입, 댓글 기능을 두지 않으며 방문자의 개인정보를 자동으로 수집하거나 저장하지 않습니다. 문의를 보내 주시는 경우에만 아래 정보를 받습니다.</p>
@@ -382,7 +383,10 @@ page = f'''<!doctype html>
             <tr><td>섭외 문의 양식 (사이트)</td><td>공연 섭외 검토와 회신</td><td>행사명, 주최, 담당자 이름, 연락처, 이메일, 행사 일시와 장소, 희망 구성, 요청 사항</td><td>협의 종료 후 1년</td></tr>
             <tr><td>공연 계약 체결</td><td>계약 이행, 정산, 세무 신고</td><td>계약서에 적힌 담당자 정보, 정산 정보</td><td>관련 법령이 정한 기간 (국세기본법 5년)</td></tr>
           </tbody></table></li>
-        <li>제3자 제공과 위탁<p>받은 정보를 다른 사람이나 단체에 제공하거나 처리를 맡기지 않습니다. 법령에 따라 제출 의무가 생기는 경우는 예외입니다.</p></li>
+        <li>제3자 제공과 위탁<p>받은 정보를 다른 사람이나 단체에 제공하지 않습니다. 법령에 따라 제출 의무가 생기는 경우는 예외입니다. 사이트 문의 양식에 적은 내용은 노바의 메일로 전달하기 위해 아래 사업자의 서버를 거칩니다. 노바는 이 과정에서 내용을 따로 저장하지 않습니다.</p>
+          <table class="ptab"><thead><tr><th>맡는 곳</th><th>맡기는 일</th><th>처리 위치</th><th>보유 기간</th></tr></thead><tbody>
+            <tr><td>Cloudflare, Inc.</td><td>문의 양식 내용의 메일 발송</td><td>미국 등 사업자의 해외 서버</td><td>발송 즉시 전달, 발송 기록은 사업자의 기본 보관 기간</td></tr>
+          </tbody></table></li>
         <li>쿠키와 자동 수집<p>사이트는 쿠키, 방문 분석 도구, 광고 추적 도구를 쓰지 않습니다. 사이트를 띄우는 서버가 남기는 기록은 아래와 같습니다.</p>
           <table class="ptab"><thead><tr><th>항목</th><th>목적</th><th>보유 기간</th></tr></thead><tbody>
             <tr><td>IP 주소, 접속 시각, 요청한 페이지</td><td>서버 보안, 장애 확인</td><td>서버 사업자의 기본 보관 기간 (최대 3개월), 따로 분석하지 않음</td></tr>

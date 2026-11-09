@@ -465,6 +465,7 @@ dialog.detail[open] { display: block; }
 #contactDialog .submit { text-align: center; margin-top: 50px; }
 #contactDialog .cbtn { display: inline-flex; justify-content: center; align-items: center; min-width: 160px; height: 50px; padding: 0 30px; background: var(--ink); color: #fff; border: 1px solid var(--ink); font-family: var(--font); font-size: 15px; font-weight: 700; letter-spacing: .04em; cursor: pointer; transition: color .15s, background-color .15s; }
 #contactDialog .cbtn:hover { background: #fff; color: var(--ink); }
+#contactDialog .hp { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; pointer-events: none; }
 #contactDialog .done { display: none; margin: 16px 0 0; font-size: 13px; opacity: .7; }
 /* ---------- 글자 단계와 About 가득 폭 (2026-11-05 최종안) ---------- */
 /* About : 가득 폭, 마크 620, 글 폭 제한 없음 */
